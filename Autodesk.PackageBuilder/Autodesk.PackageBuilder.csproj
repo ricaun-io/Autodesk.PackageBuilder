@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageProjectUrl>https://github.com/ricaun/Autodesk.PackageBuilder</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ricaun/Autodesk.PackageBuilder</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+  </PropertyGroup>
+
+</Project>
