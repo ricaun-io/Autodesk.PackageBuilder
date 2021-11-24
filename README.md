@@ -1,10 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+# Autodesk.PackageBuilder
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-  </PropertyGroup>
+![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)
 
-  <PropertyGroup>
+## Package 
+```xml
+<PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/ricaun-io/Autodesk.PackageBuilder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ricaun-io/Autodesk.PackageBuilder</RepositoryUrl>
@@ -12,13 +12,12 @@
     <SignAssembly>false</SignAssembly>
     <PackageIcon>icon.png</PackageIcon>
     <PackageIconUrl />
-  </PropertyGroup>
+</PropertyGroup>
 
-  <ItemGroup>
+<ItemGroup>
     <None Include="icon.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
+        <Pack>True</Pack>
+        <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-</Project>
+</ItemGroup>
+```
