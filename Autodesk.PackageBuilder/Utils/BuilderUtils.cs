@@ -1,0 +1,29 @@
+﻿namespace Autodesk.PackageBuilder
+{
+    using System;
+
+    public static class BuilderUtils
+    {
+        public static void Build<TBuilder>(string path)
+            where TBuilder : IBuilder, new()
+        {
+            var builder = Activator.CreateInstance<TBuilder>();
+            builder.Build(path);
+        }
+
+        public static void Build<TBuilder>(Action<TBuilder> config, string path)
+            where TBuilder : IBuilder, new()
+        {
+            var builder = Build(config);
+            builder.Build(path);
+        }
+
+        public static TBuilder Build<TBuilder>(Action<TBuilder> config)
+            where TBuilder : IBuilder, new()
+        {
+            var builder = Activator.CreateInstance<TBuilder>();
+            config?.Invoke(builder);
+            return builder;
+        }
+    }
+}
