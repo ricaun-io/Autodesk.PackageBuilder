@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project", "Project", "{F716
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Examples", "Examples\Examples.csproj", "{FFBDD53B-D4E9-458E-9DF0-E117295D1593}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Examples", "Examples\Examples.csproj", "{FFBDD53B-D4E9-458E-9DF0-E117295D1593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,7 +28,6 @@ Global
 		{59542136-031D-4D65-959B-F4819E10FDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFBDD53B-D4E9-458E-9DF0-E117295D1593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FFBDD53B-D4E9-458E-9DF0-E117295D1593}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FFBDD53B-D4E9-458E-9DF0-E117295D1593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
