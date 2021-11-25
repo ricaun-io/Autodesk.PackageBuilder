@@ -9,22 +9,25 @@
 #
 #     - To trigger manual generation invoke:
 #
-#         nuke --generate-configuration GitHubActions_Build --host GitHubActions
+#         nuke --generate-configuration GitHubActions_Develop --host GitHubActions
 #
 # </auto-generated>
 # ------------------------------------------------------------------------------
 
-name: Build
+name: Develop
 
 on:
   push:
     branches:
-      - master
+      - develop
+  pull_request:
+    branches:
+      - develop
   workflow_dispatch:
 
 jobs:
-  Build:
-    name: Build
+  Develop:
+    name: Develop
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
@@ -47,9 +50,3 @@ jobs:
         run: ./build/build.cmd --root ./build
         env:
           GitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-          NugetApiUrl: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
-          NugetApiKey: ${{ secrets.GITHUB_TOKEN }}
-
-          SignFile: ${{ secrets.SIGN_FILE }}
-          SignPassword: ${{ secrets.SIGN_PASSWORD }}
