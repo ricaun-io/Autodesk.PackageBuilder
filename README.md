@@ -1,23 +1,15 @@
 # Autodesk.PackageBuilder
 
-![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)
+This package is intended to build Autodesk PackageContent.xml using C# fluent API. 
 
-## Package 
-```xml
-<PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageProjectUrl>https://github.com/ricaun-io/Autodesk.PackageBuilder</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/ricaun-io/Autodesk.PackageBuilder</RepositoryUrl>
-    <RepositoryType>github</RepositoryType>
-    <SignAssembly>false</SignAssembly>
-    <PackageIcon>icon.png</PackageIcon>
-    <PackageIconUrl />
-</PropertyGroup>
+![C#](https://img.shields.io/badge/C%23-blue)
+![AUTODESK](https://img.shields.io/badge/AUTODESK-black?logo=autodesk&logoColor=white)
+[![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 
-<ItemGroup>
-    <None Include="icon.png">
-        <Pack>True</Pack>
-        <PackagePath></PackagePath>
-    </None>
-</ItemGroup>
-```
+## License
+
+This library is [licensed](LICENSE) under the [MIT Licence](https://en.wikipedia.org/wiki/MIT_License).
+
+---
+
+Do you like this package? Please [star this project on GitHub](https://github.com/ricaun-io/Autodesk.PackageBuilder/stargazers)!
