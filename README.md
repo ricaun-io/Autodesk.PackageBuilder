@@ -8,7 +8,7 @@ This package is intended to build Autodesk PackageContent.xml using C# fluent AP
 
 ## License
 
-This library is [licensed](LICENSE) under the [MIT Licence](https://en.wikipedia.org/wiki/MIT_License).
+This package is [licensed](LICENSE) under the [MIT Licence](https://en.wikipedia.org/wiki/MIT_License).
 
 ---
 
