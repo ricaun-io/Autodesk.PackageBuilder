@@ -174,6 +174,15 @@ var builder = BuilderUtils.Build<RevitAddInsBuilder>(builder =>
 });
 ```
 
+## Getting results
+
+### String result
+
+```C#
+var builder = new DemoAddinBuilder();
+var result = builder.ToString();
+```
+
 ### .addin file
 
 ```C#
