@@ -64,7 +64,7 @@ public class DemoPackageBuilder : PackageContentsBuilder
 }
 ```
 
-Or use `BuilderUtils.Build<PackageContentsBuilder>()`
+Or use `BuilderUtils.Build<PackageContentsBuilder>()`.
 
 ```C#
 var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
@@ -159,7 +159,7 @@ public class DemoAddinBuilder : RevitAddInsBuilder
 }
 ```
 
-Or use `BuilderUtils.Build<RevitAddInsBuilder>()`
+Or use `BuilderUtils.Build<RevitAddInsBuilder>()`.
 
 ```C#
 var builder = BuilderUtils.Build<RevitAddInsBuilder>(builder =>
