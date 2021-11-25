@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <PropertyGroup>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/ricaun-io/Autodesk.PackageBuilder</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ricaun-io/Autodesk.PackageBuilder</RepositoryUrl>

@@ -5,8 +5,35 @@
     using System.Xml;
     using System.Xml.Serialization;
     using Model;
+
     public static class SerializeExtensions
     {
+        /// <summary>
+        /// Serializar IPackageSerializable
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="toSerialize"></param>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static string SerializeFile<T>(this T toSerialize, string path, string forceFile = null) where T : IPackageSerializable
+        {
+            if (forceFile != null)
+            {
+                var name = Path.GetFileNameWithoutExtension(forceFile);
+                var pathExt = Path.GetExtension(path);
+                if (name != string.Empty)
+                {
+                    if (pathExt == string.Empty) path = Path.Combine(path, name);
+                }
+
+                var extension = Path.GetExtension(forceFile);
+                if (extension != string.Empty)
+                {
+                    path = Path.ChangeExtension(path, extension);
+                }
+            }
+            return SerializeFile(toSerialize, path);
+        }
         /// <summary>
         /// Serializar IPackageSerializable
         /// </summary>

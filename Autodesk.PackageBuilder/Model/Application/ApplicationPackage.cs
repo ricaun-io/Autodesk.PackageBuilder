@@ -1,5 +1,4 @@
-﻿
-namespace Autodesk.PackageBuilder.Model.Application
+﻿namespace Autodesk.PackageBuilder.Model.Application
 {
     using System;
     using System.Collections.Generic;

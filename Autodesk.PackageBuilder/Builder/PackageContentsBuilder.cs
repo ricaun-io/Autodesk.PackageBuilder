@@ -1,7 +1,8 @@
 ﻿namespace Autodesk.PackageBuilder
 {
     using Model.Application;
-    public abstract class PackageContentsBuilder
+
+    public class PackageContentsBuilder : IBuilder
     {
         private readonly ApplicationPackage applicationPackage;
 
@@ -23,10 +24,11 @@
             _components = new ComponentsBuilder(applicationPackage.Components);
         }
 
-        public string Save(string path)
+        public string Build(string path)
         {
-            return applicationPackage.SerializeFile(path);
+            return applicationPackage.SerializeFile(path, "PackageContents.xml");
         }
+
         public override string ToString()
         {
             return applicationPackage.SerializeObject();
