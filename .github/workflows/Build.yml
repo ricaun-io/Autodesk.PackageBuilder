@@ -33,12 +33,8 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 5.0.x
-      - name: NuGet Add Source
-        run: |
-          if ("${{ env.NugetSourcesApiKey }}" -ne "") { dotnet nuget add source --username ${{github.repository_owner}} --password ${{ env.NugetSourcesApiKey }} --store-password-in-clear-text --name github ${{ env.NugetSourcesApiUrl }} }
-        env:
-          NugetSourcesApiUrl: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
-          NugetSourcesApiKey: ${{ secrets.RICAUN_PACKAGE }}
+      - name: "NuGet Add Source Organization"
+        run: if ("${{ secrets.ORGANIZATION_SOURCE_PACKAGE_PASSWORD }}" -ne "") { dotnet nuget add source --username ${{ secrets.ORGANIZATION_SOURCE_PACKAGE_USERNAME }} --password ${{ secrets.ORGANIZATION_SOURCE_PACKAGE_PASSWORD }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json" }
 
       - name: Cache .nuke/temp, ~/.nuget/packages
         uses: actions/cache@v2
