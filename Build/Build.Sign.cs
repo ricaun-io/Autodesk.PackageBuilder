@@ -91,6 +91,7 @@ partial class Build
                 .SetFile(certPath)
                 .SetPassword(certPassword)
                 .SetTimestampServerUrl(timestampServer)
+                .SetFileDigestAlgorithm(SignToolDigestAlgorithm.SHA256)
             );
         }
         catch (Exception)
