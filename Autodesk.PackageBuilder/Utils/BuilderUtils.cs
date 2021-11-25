@@ -4,6 +4,12 @@
 
     public static class BuilderUtils
     {
+        public static TBuilder Build<TBuilder>()
+            where TBuilder : IBuilder, new()
+        {
+            return Activator.CreateInstance<TBuilder>();
+        }
+
         public static void Build<TBuilder>(string path)
             where TBuilder : IBuilder, new()
         {
