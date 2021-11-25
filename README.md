@@ -6,6 +6,7 @@ This package is intended to build Autodesk PackageContent.xml using C# fluent AP
 ![AUTODESK](https://img.shields.io/badge/AUTODESK-black?logo=autodesk&logoColor=white)
 
 [![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
+[![Develop](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Develop.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 
 ## Examples
 
