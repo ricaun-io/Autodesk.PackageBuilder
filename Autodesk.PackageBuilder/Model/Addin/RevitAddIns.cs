@@ -8,6 +8,6 @@
     public class RevitAddIns : IPackageSerializable
     {
         [XmlElement]
-        public List<AddInApplication> AddIn { get; set; } = new List<AddInApplication>();
+        public List<AddInModel> AddIn { get; set; } = new List<AddInModel>();
     }
 }
