@@ -5,7 +5,8 @@ This package is intended to build Autodesk PackageContent.xml using C# fluent AP
 ![C#](https://img.shields.io/badge/C%23-blue)
 ![AUTODESK](https://img.shields.io/badge/AUTODESK-black?logo=autodesk&logoColor=white)
 
-[![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
+[![Publish](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Publish.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
+[![Develop](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Develop.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 
 ## Examples
 
@@ -63,7 +64,7 @@ public class DemoPackageBuilder : PackageContentsBuilder
 }
 ```
 
-Or use `BuilderUtils.Build<PackageContentsBuilder>()`
+Or use `BuilderUtils.Build<PackageContentsBuilder>()`.
 
 ```C#
 var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
@@ -158,7 +159,7 @@ public class DemoAddinBuilder : RevitAddInsBuilder
 }
 ```
 
-Or use `BuilderUtils.Build<RevitAddInsBuilder>()`
+Or use `BuilderUtils.Build<RevitAddInsBuilder>()`.
 
 ```C#
 var builder = BuilderUtils.Build<RevitAddInsBuilder>(builder =>
