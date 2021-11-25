@@ -20,10 +20,13 @@ on:
   push:
     branches:
       - develop
+  pull_request:
+    branches:
+      - develop
   workflow_dispatch:
 
 jobs:
-  Build:
+  Develop:
     name: Develop
     runs-on: windows-latest
     steps:
