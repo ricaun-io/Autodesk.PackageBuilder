@@ -48,8 +48,8 @@ jobs:
         env:
           GitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
-          NugetApiUrl: "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json"
-          NugetApiKey: ${{ secrets.GITHUB_TOKEN }}
+          NugetApiUrl: ${{ secrets.NUGET_API_URL }}
+          NugetApiKey: ${{ secrets.NUGET_API_KEY }}
 
           SignFile: ${{ secrets.SIGN_FILE }}
           SignPassword: ${{ secrets.SIGN_PASSWORD }}
