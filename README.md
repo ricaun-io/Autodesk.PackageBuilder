@@ -8,6 +8,8 @@ This package is intended to build Autodesk PackageContent.xml using C# fluent AP
 [![Publish](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Publish.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 [![Develop](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Develop.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 
+[![Release](https://img.shields.io/nuget/v/Autodesk.PackageBuilder?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/Autodesk.PackageBuilder)
+
 ## Examples
 
 ### Create PackageContents.xml
