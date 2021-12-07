@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -35,7 +36,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="icon.png">
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\icon.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

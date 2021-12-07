@@ -63,9 +63,12 @@
           "items": {
             "type": "string",
             "enum": [
+              "Build",
               "Clean",
               "Compile",
-              "PublishNugetFiles",
+              "GitRelease",
+              "Pack",
+              "Release",
               "Sign"
             ]
           }
@@ -80,12 +83,18 @@
           "items": {
             "type": "string",
             "enum": [
+              "Build",
               "Clean",
               "Compile",
-              "PublishNugetFiles",
+              "GitRelease",
+              "Pack",
+              "Release",
               "Sign"
             ]
           }
+        },
+        "Type": {
+          "type": "string"
         },
         "Verbosity": {
           "type": "string",
