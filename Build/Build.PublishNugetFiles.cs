@@ -17,7 +17,7 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-partial class Build
+partial class Build2
 {
     /*
         env:
