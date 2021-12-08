@@ -24,8 +24,5 @@
 
         [XmlElement]
         public string VendorDescription { get; set; }
-
-        [XmlElement]
-        public bool AllowLoadingIntoExistingSession { get; set; } = true;
     }
 }
