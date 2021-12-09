@@ -1,13 +1,12 @@
 # Autodesk.PackageBuilder
 
-This package is intended to build Autodesk PackageContent.xml using C# fluent API. 
+This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin` using C# fluent API.
 
 ![C#](https://img.shields.io/badge/C%23-blue)
 ![AUTODESK](https://img.shields.io/badge/AUTODESK-black?logo=autodesk&logoColor=white)
 
 [![Publish](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Publish.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 [![Develop](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Develop.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
-
 [![Release](https://img.shields.io/nuget/v/Autodesk.PackageBuilder?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/Autodesk.PackageBuilder)
 
 ## Examples
