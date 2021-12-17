@@ -35,6 +35,7 @@
     <None Include="..\README.md">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+      <Visible>false</Visible>
     </None>
   </ItemGroup>
 
@@ -42,6 +43,7 @@
     <None Include="..\LICENSE">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
+      <Visible>false</Visible>
     </None>
   </ItemGroup>
 

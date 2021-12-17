@@ -10,6 +10,9 @@
           "type": "boolean",
           "description": "Indicates to continue a previously failed build attempt"
         },
+        "Folder": {
+          "type": "string"
+        },
         "Help": {
           "type": "boolean",
           "description": "Shows the help text for this build assembly"
@@ -33,6 +36,9 @@
             "VisualStudio",
             "VSCode"
           ]
+        },
+        "Name": {
+          "type": "string"
         },
         "NoLogo": {
           "type": "boolean",
@@ -66,6 +72,7 @@
               "Build",
               "Clean",
               "Compile",
+              "CompileExample",
               "GitRelease",
               "Pack",
               "Release",
@@ -86,15 +93,13 @@
               "Build",
               "Clean",
               "Compile",
+              "CompileExample",
               "GitRelease",
               "Pack",
               "Release",
               "Sign"
             ]
           }
-        },
-        "Type": {
-          "type": "string"
         },
         "Verbosity": {
           "type": "string",
