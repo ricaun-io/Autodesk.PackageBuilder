@@ -37,6 +37,9 @@
             "VSCode"
           ]
         },
+        "MainName": {
+          "type": "string"
+        },
         "Name": {
           "type": "string"
         },
@@ -58,6 +61,9 @@
           "items": {
             "type": "string"
           }
+        },
+        "ReleaseExample": {
+          "type": "boolean"
         },
         "Root": {
           "type": "string",
