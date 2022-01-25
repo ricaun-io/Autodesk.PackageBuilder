@@ -2,11 +2,14 @@
 
 This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin` using C# fluent API.
 
-![C#](https://img.shields.io/badge/C%23-blue)
-![AUTODESK](https://img.shields.io/badge/AUTODESK-black?logo=autodesk&logoColor=white)
+[![Autodesk](https://img.shields.io/badge/Autodesk-black?logo=autodesk&logoColor=white)](../..)
+[![Revit](https://img.shields.io/badge/Revit-black.svg)](../..)
 
-[![Publish](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Publish.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
-[![Develop](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Develop.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
+[![Visual Studio 2019](https://img.shields.io/badge/Visual%20Studio%202019-16.11.7+-blue)](../..)
+[![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+[![Publish](../../actions/workflows/Publish.yml/badge.svg)](../../actions)
+[![Develop](../../actions/workflows/Develop.yml/badge.svg)](../../actions)
 [![Release](https://img.shields.io/nuget/v/Autodesk.PackageBuilder?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/Autodesk.PackageBuilder)
 
 ## Examples
@@ -209,4 +212,4 @@ This package is [licensed](LICENSE) under the [MIT Licence](https://en.wikipedia
 
 ---
 
-Do you like this package? Please [star this project on GitHub](https://github.com/ricaun-io/Autodesk.PackageBuilder/stargazers)!
+Do you like this package? Please [star this project on GitHub](../../stargazers)!
