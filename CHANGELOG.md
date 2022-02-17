@@ -37,10 +37,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.0.0] / 2021-11-26
 - First Release
 
-[vNext]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.0...HEAD
-[1.0.5]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.4...1.0.5
-[1.0.4]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.3...1.0.4
-[1.0.3]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.2...1.0.3
-[1.0.2]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.1...1.0.2
-[1.0.1]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.0...1.0.1
-[1.0.0]: https://github.com/ricaun-io/Autodesk.PackageBuilder/compare/1.0.0
+[vNext]: ../../compare/1.0.0...HEAD
+[1.0.6]: ../../compare/1.0.5...1.0.6
+[1.0.5]: ../../compare/1.0.4...1.0.5
+[1.0.4]: ../../compare/1.0.3...1.0.4
+[1.0.3]: ../../compare/1.0.2...1.0.3
+[1.0.2]: ../../compare/1.0.1...1.0.2
+[1.0.1]: ../../compare/1.0.0...1.0.1
+[1.0.0]: ../../compare/1.0.0
