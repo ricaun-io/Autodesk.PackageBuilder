@@ -5,7 +5,7 @@ This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.
 [![Autodesk](https://img.shields.io/badge/Autodesk-black?logo=autodesk&logoColor=white)](../..)
 [![Revit](https://img.shields.io/badge/Revit-black.svg)](../..)
 
-[![Visual Studio 2019](https://img.shields.io/badge/Visual%20Studio%202019-16.11.7+-blue)](../..)
+[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Publish](../../actions/workflows/Publish.yml/badge.svg)](../../actions)
