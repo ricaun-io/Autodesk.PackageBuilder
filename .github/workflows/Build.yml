@@ -1,43 +1,38 @@
 # ------------------------------------------------------------------------------
-# Publish
+# Build.yml
 # ------------------------------------------------------------------------------
 
-name: Publish
+name: Build
 
 on:
   push:
-    branches:
+  pull_request:
+    branches-ignore:
       - master
+      - main
   workflow_dispatch:
 
 jobs:
-  Publish:
-    name: Publish
+  Build:
+    name: Build
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v1
 
       - name: NuGet Setup
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 5.0.x
+          dotnet-version: | 
+            6.0.x
+            7.0.x
       - name: "NuGet Add Source Organization"
         run: if ("${{ secrets.ORGANIZATION_SOURCE_PACKAGE_PASSWORD }}" -ne "") { dotnet nuget add source --username ${{ secrets.ORGANIZATION_SOURCE_PACKAGE_USERNAME }} --password ${{ secrets.ORGANIZATION_SOURCE_PACKAGE_PASSWORD }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{github.repository_owner}}/index.json" }
 
-      - name: Cache .nuke/temp, ~/.nuget/packages
-        uses: actions/cache@v2
-        with:
-          path: |
-            .nuke/temp
-            ~/.nuget/packages
-          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build/build.cmd'
         run: ./build/build.cmd --root ./build
         env:
           GitHubToken: ${{ secrets.GITHUB_TOKEN }}
-
-          NugetApiUrl: ${{ secrets.NUGET_API_URL }}
-          NugetApiKey: ${{ secrets.NUGET_API_KEY }}
-
           SignFile: ${{ secrets.SIGN_FILE }}
           SignPassword: ${{ secrets.SIGN_PASSWORD }}
+          NugetApiUrl: ${{ secrets.NUGET_API_URL }}
+          NugetApiKey: ${{ secrets.NUGET_API_KEY }}
