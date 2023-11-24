@@ -1,5 +1,8 @@
 ﻿namespace Autodesk.PackageBuilder
 {
+    /// <summary>
+    /// RevitUtils
+    /// </summary>
     public static class RevitUtils
     {
         /// <summary>
