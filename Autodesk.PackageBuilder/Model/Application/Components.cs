@@ -4,12 +4,7 @@ namespace Autodesk.PackageBuilder.Model.Application;
 
 public class Components
 {
-    [XmlAttribute]
-    public string Description { get; set; }
-
-    [XmlElement]
-    public RuntimeRequirements RuntimeRequirements { get; set; }
-
-    [XmlElement]
-    public ComponentEntry ComponentEntry { get; set; }
+    [XmlAttribute] public string Description { get; set; }
+    [XmlElement] public RuntimeRequirements RuntimeRequirements { get; set; }
+    [XmlElement] public ComponentEntry ComponentEntry { get; set; }
 }

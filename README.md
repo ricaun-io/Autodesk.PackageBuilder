@@ -16,6 +16,7 @@ This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.
 ### Create PackageContents.xml
 
 To get the `PackageContents.xml` like this:
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationPackage SchemaVersion="1.0" ProductType="Application" AutodeskProduct="Revit" Name="RevitAddin" AppVersion="1.0.0">
@@ -32,6 +33,7 @@ To get the `PackageContents.xml` like this:
 ```
 
 Inherit your builder class from `PackageContentsBuilder` base class.
+
 ```C#
 public class DemoPackageBuilder : PackageContentsBuilder
 {

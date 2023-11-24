@@ -8,10 +8,12 @@ public class ApplicationPackageBuilder : SingleBuilderBase<ApplicationPackageBui
     {
         SetDataInternal(applicationPackage);
     }
+
     public ApplicationPackageBuilder Create(string schemaVersion)
     {
         return SchemaVersion(schemaVersion);
     }
+
     private ApplicationPackageBuilder SchemaVersion(string value) => SetPropertyValue(value);
     public ApplicationPackageBuilder Name(string value) => SetPropertyValue(value);
     public ApplicationPackageBuilder AutodeskProduct(string value) => SetPropertyValue(value);
