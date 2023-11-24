@@ -1,7 +1,5 @@
-﻿namespace Autodesk.PackageBuilder.Model
-{
-    public interface IPackageSerializable
-    {
+﻿namespace Autodesk.PackageBuilder.Model;
 
-    }
+public interface IPackageSerializable
+{
 }

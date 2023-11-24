@@ -1,7 +1,6 @@
-﻿namespace Autodesk.PackageBuilder
+﻿namespace Autodesk.PackageBuilder;
+
+public interface IBuilder
 {
-    public interface IBuilder
-    {
-        string Build(string path);
-    }
+    string Build(string path);
 }

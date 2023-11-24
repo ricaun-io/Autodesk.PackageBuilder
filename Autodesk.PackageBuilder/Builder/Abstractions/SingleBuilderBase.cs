@@ -1,13 +1,12 @@
-﻿namespace Autodesk.PackageBuilder
+﻿namespace Autodesk.PackageBuilder;
+
+public abstract class SingleBuilderBase<TBuilder, TData> : BuilderBase<TBuilder, TData>
+    where TBuilder : class
+    where TData : new()
 {
-    public abstract class SingleBuilderBase<TBuilder, TData> : BuilderBase<TBuilder, TData>
-        where TBuilder : class
-        where TData : new()
+    protected TBuilder SetDataInternal(TData data)
     {
-        protected TBuilder SetDataInternal(TData data)
-        {
-            Data = data;
-            return this as TBuilder;
-        }
+        Data = data;
+        return this as TBuilder;
     }
 }

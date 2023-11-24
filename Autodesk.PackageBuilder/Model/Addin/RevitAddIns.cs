@@ -1,13 +1,10 @@
-﻿namespace Autodesk.PackageBuilder.Model.Addin
+﻿using System.Xml.Serialization;
+
+namespace Autodesk.PackageBuilder.Model.Addin;
+
+[Serializable]
+public class RevitAddIns : IPackageSerializable
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Xml;
-    using System.Xml.Serialization;
-    [Serializable]
-    public class RevitAddIns : IPackageSerializable
-    {
-        [XmlElement]
-        public List<AddInModel> AddIn { get; set; } = new List<AddInModel>();
-    }
+    [XmlElement]
+    public List<AddInModel> AddIn { get; set; } = new List<AddInModel>();
 }

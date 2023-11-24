@@ -1,7 +1,6 @@
-﻿namespace Autodesk.PackageBuilder
+﻿namespace Autodesk.PackageBuilder;
+
+public interface IAddInEntryBuilder
 {
-    public interface IAddInEntryBuilder
-    {
-        AddInEntryBuilder CreateEntry(string type = "Application");
-    }
+    AddInEntryBuilder CreateEntry(string type = "Application");
 }

@@ -1,7 +1,6 @@
-﻿namespace Autodesk.PackageBuilder
+﻿namespace Autodesk.PackageBuilder;
+
+public interface IComponentsEntryBuilder
 {
-    public interface IComponentsEntryBuilder
-    {
-        ComponentsBuilder CreateEntry(string description);
-    }
+    ComponentsBuilder CreateEntry(string description);
 }

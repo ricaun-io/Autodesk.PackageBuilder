@@ -1,7 +1,6 @@
-﻿namespace Autodesk.PackageBuilder
+﻿namespace Autodesk.PackageBuilder;
+
+public interface ICompanyDetailsBuilder
 {
-    public interface ICompanyDetailsBuilder
-    {
-        CompanyDetailsBuilder Create(string name);
-    }
+    CompanyDetailsBuilder Create(string name);
 }

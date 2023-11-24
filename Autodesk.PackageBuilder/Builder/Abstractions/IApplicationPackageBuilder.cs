@@ -1,7 +1,6 @@
-﻿namespace Autodesk.PackageBuilder
+﻿namespace Autodesk.PackageBuilder;
+
+public interface IApplicationPackageBuilder
 {
-    public interface IApplicationPackageBuilder
-    {
-        ApplicationPackageBuilder Create(string schemaVersion = "1.0");
-    }
+    ApplicationPackageBuilder Create(string schemaVersion = "1.0");
 }

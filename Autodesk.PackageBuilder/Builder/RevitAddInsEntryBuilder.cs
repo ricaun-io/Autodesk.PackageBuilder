@@ -1,11 +1,11 @@
-﻿namespace Autodesk.PackageBuilder
+﻿using Autodesk.PackageBuilder.Model.Addin;
+
+namespace Autodesk.PackageBuilder;
+
+public class RevitAddInsEntryBuilder : SingleBuilderBase<RevitAddInsEntryBuilder, RevitAddIns>
 {
-    using Model.Addin;
-    public class RevitAddInsEntryBuilder : SingleBuilderBase<RevitAddInsEntryBuilder, RevitAddIns>
+    public RevitAddInsEntryBuilder(RevitAddIns model)
     {
-        public RevitAddInsEntryBuilder(RevitAddIns model)
-        {
-            SetDataInternal(model);
-        }
+        SetDataInternal(model);
     }
 }

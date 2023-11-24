@@ -1,38 +1,35 @@
-﻿namespace Autodesk.PackageBuilder
+﻿using Autodesk.PackageBuilder.Model.Application;
+
+namespace Autodesk.PackageBuilder;
+
+public class PackageContentsBuilder : IBuilder
 {
-    using Model.Application;
+    private readonly ApplicationPackage _applicationPackage;
+    private readonly ApplicationPackageBuilder _applicationPackageBuilder;
+    private readonly CompanyDetailsBuilder _companyDetailsBuilder;
+    private readonly ComponentsBuilder _components;
 
-    public class PackageContentsBuilder : IBuilder
+    public IApplicationPackageBuilder ApplicationPackage => _applicationPackageBuilder;
+
+    public ICompanyDetailsBuilder CompanyDetails => _companyDetailsBuilder;
+
+    public IComponentsEntryBuilder Components => _components;
+
+    public PackageContentsBuilder()
     {
-        private readonly ApplicationPackage applicationPackage;
-
-        private readonly ApplicationPackageBuilder _applicationPackage;
-        private readonly CompanyDetailsBuilder _companyDetailsBuilder;
-        private readonly ComponentsBuilder _components;
-
-        public IApplicationPackageBuilder ApplicationPackage => _applicationPackage;
-
-        public ICompanyDetailsBuilder CompanyDetails => _companyDetailsBuilder;
-
-        public IComponentsEntryBuilder Components => _components;
-
-        public PackageContentsBuilder()
-        {
-            applicationPackage = new ApplicationPackage();
-            _applicationPackage = new ApplicationPackageBuilder(applicationPackage);
-            _companyDetailsBuilder = new CompanyDetailsBuilder(applicationPackage.CompanyDetails);
-            _components = new ComponentsBuilder(applicationPackage.Components);
-        }
-
-        public string Build(string path)
-        {
-            return applicationPackage.SerializeFile(path, "PackageContents.xml");
-        }
-
-        public override string ToString()
-        {
-            return applicationPackage.SerializeObject();
-        }
+        _applicationPackage = new ApplicationPackage();
+        _applicationPackageBuilder = new ApplicationPackageBuilder(_applicationPackage);
+        _companyDetailsBuilder = new CompanyDetailsBuilder(_applicationPackage.CompanyDetails);
+        _components = new ComponentsBuilder(_applicationPackage.Components);
     }
 
+    public string Build(string path)
+    {
+        return _applicationPackage.SerializeFile(path, "PackageContents.xml");
+    }
+
+    public override string ToString()
+    {
+        return _applicationPackage.SerializeObject();
+    }
 }

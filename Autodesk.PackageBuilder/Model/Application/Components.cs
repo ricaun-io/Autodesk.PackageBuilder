@@ -1,16 +1,15 @@
-﻿namespace Autodesk.PackageBuilder.Model.Application
+﻿using System.Xml.Serialization;
+
+namespace Autodesk.PackageBuilder.Model.Application;
+
+public class Components
 {
-    using System.Xml;
-    using System.Xml.Serialization;
-    public class Components
-    {
-        [XmlAttribute]
-        public string Description { get; set; }
+    [XmlAttribute]
+    public string Description { get; set; }
 
-        [XmlElement]
-        public RuntimeRequirements RuntimeRequirements { get; set; }
+    [XmlElement]
+    public RuntimeRequirements RuntimeRequirements { get; set; }
 
-        [XmlElement]
-        public ComponentEntry ComponentEntry { get; set; }
-    }
+    [XmlElement]
+    public ComponentEntry ComponentEntry { get; set; }
 }
