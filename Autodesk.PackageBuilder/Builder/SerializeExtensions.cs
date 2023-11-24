@@ -1,11 +1,14 @@
 ﻿namespace Autodesk.PackageBuilder
 {
+    using Model;
     using System.IO;
     using System.Text;
     using System.Xml;
     using System.Xml.Serialization;
-    using Model;
 
+    /// <summary>
+    /// SerializeExtensions
+    /// </summary>
     public static class SerializeExtensions
     {
         /// <summary>
@@ -14,6 +17,7 @@
         /// <typeparam name="T"></typeparam>
         /// <param name="toSerialize"></param>
         /// <param name="path"></param>
+        /// <param name="forceFile"></param>
         /// <returns></returns>
         public static string SerializeFile<T>(this T toSerialize, string path, string forceFile = null) where T : IPackageSerializable
         {
@@ -75,6 +79,7 @@
         /// </summary>
         public class Utf8StringWriter : StringWriter
         {
+            /// <inheritdoc/>
             public override Encoding Encoding => Encoding.UTF8;
         }
     }

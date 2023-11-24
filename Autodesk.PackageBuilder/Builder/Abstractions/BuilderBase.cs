@@ -2,12 +2,27 @@
 {
     using System;
     using System.Runtime.CompilerServices;
+    /// <summary>
+    /// BuilderBase
+    /// </summary>
+    /// <typeparam name="TBuilder"></typeparam>
+    /// <typeparam name="TData"></typeparam>
     public abstract class BuilderBase<TBuilder, TData>
         where TBuilder : class
         where TData : new()
     {
+        /// <summary>
+        /// Data
+        /// </summary>
         protected TData Data { get; set; }
 
+        /// <summary>
+        /// SetNewPropertyValue
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         protected TBuilder SetNewPropertyValue<T>(object value, [CallerMemberName] string name = null) where T : new()
         {
             return SetNewPropertyValue<T>(Data, name, value);
@@ -29,6 +44,12 @@
             return SetPropertyValue(property.GetValue(instance), method, value);
         }
 
+        /// <summary>
+        /// SetPropertyValue
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="name"></param>
+        /// <returns></returns>
         protected TBuilder SetPropertyValue(object value, [CallerMemberName] string name = null)
         {
             return SetPropertyValue(Data, name, value);
