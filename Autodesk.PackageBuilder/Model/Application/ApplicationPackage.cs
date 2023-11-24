@@ -17,6 +17,6 @@ public class ApplicationPackage : IPackageSerializable
     [XmlAttribute] public string HelpFile { get; set; }
     [XmlAttribute] public string SupportedLocales { get; set; }
     [XmlAttribute] public string OnlineDocumentation { get; set; }
-    [XmlElement] public CompanyDetails CompanyDetails { get; set; } = new CompanyDetails();
-    [XmlElement] public List<Components> Components { get; set; } = new List<Components>();
+    [XmlElement] public CompanyDetails CompanyDetails { get; set; } = new();
+    [XmlElement] public List<Components> Components { get; set; } = new();
 }
