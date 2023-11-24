@@ -21,6 +21,13 @@ public static class BuilderUtils
         builder.Build(path);
     }
 
+    public static void Build<TBuilder>(string path, Action<TBuilder> config)
+        where TBuilder : IBuilder, new()
+    {
+        var builder = Build(config);
+        builder.Build(path);
+    }
+
     public static TBuilder Build<TBuilder>(Action<TBuilder> config)
         where TBuilder : IBuilder, new()
     {
