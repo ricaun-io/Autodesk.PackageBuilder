@@ -36,7 +36,7 @@
                     path = Path.ChangeExtension(path, extension);
                 }
             }
-            return SerializeFile(toSerialize, path);
+            return toSerialize.SerializeFile(path);
         }
         /// <summary>
         /// Serializar IPackageSerializable
