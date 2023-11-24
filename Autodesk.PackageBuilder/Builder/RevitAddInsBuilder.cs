@@ -17,11 +17,20 @@
             _addInEntryBuilder = new AddInEntryBuilder(revitAddIns.AddIn);
         }
 
+        /// <summary>
+        /// Build and serialize the .addin file.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public string Build(string path)
         {
             return revitAddIns.SerializeFile(path, ".addin");
         }
 
+        /// <summary>
+        /// Serialize the RevitAddIns object.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return revitAddIns.SerializeObject();

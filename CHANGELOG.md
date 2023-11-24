@@ -10,9 +10,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### PackageBuilder
 - Enable `DocumentationFile` in package.
 - Update `BuilderUtils` to return instance.
+- Obsolete and internal `AllowLoadingIntoExistingSession`
 ### Tests
 - Test `Constants`
 - Test `BuilderUtils`
+- Test `Builder` create file.
+- Test `RevitAddInsBuilder`
 
 ## [1.0.5] / 2021-12-21
 - Update Build Project

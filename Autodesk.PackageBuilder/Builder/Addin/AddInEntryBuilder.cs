@@ -23,6 +23,7 @@
         public AddInEntryBuilder FullClassName(string value) => SetPropertyValue(value);
         public AddInEntryBuilder VendorId(string value) => SetPropertyValue(value);
         public AddInEntryBuilder VendorDescription(string value) => SetPropertyValue(value);
-        public AddInEntryBuilder AllowLoadingIntoExistingSession(bool value) => SetPropertyValue(value);
+        [System.Obsolete("This method does not have a Property 'AllowLoadingIntoExistingSession' in class AddInModel, will be removed in a future version.")]
+        internal AddInEntryBuilder AllowLoadingIntoExistingSession(bool value) => SetPropertyValue(value);
     }
 }

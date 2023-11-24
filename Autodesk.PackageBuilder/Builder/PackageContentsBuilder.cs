@@ -24,6 +24,11 @@
             _components = new ComponentsBuilder(applicationPackage.Components);
         }
 
+        /// <summary>
+        /// Build and serialize the PackageContents.xml file.
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public string Build(string path)
         {
             return applicationPackage.SerializeFile(path, "PackageContents.xml");
