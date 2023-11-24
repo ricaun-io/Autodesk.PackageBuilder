@@ -25,7 +25,7 @@ public static class RevitUtils
         return componentsBuilder
             .OS("Win64")
             .Platform("Revit")
-            .SeriesMin("R" + revitVersion)
-            .SeriesMax("R" + revitVersion);
+            .SeriesMin($"R{revitVersion}")
+            .SeriesMax($"R{revitVersion}");
     }
 }
