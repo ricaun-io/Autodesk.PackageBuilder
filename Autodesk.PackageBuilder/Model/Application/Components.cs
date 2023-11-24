@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder.Model.Application;
 
-public class Components
+public sealed class Components
 {
     [XmlAttribute] public string Description { get; set; }
     [XmlElement] public RuntimeRequirements RuntimeRequirements { get; set; }

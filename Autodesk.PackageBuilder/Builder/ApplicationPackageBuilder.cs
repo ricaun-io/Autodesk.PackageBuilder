@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder;
 
-public class ApplicationPackageBuilder : SingleBuilderBase<ApplicationPackageBuilder, ApplicationPackage>, IApplicationPackageBuilder
+public sealed class ApplicationPackageBuilder : SingleBuilderBase<ApplicationPackageBuilder, ApplicationPackage>, IApplicationPackageBuilder
 {
     public ApplicationPackageBuilder(ApplicationPackage applicationPackage)
     {

@@ -2,7 +2,7 @@
 
 using System.Xml.Serialization;
 
-public class CompanyDetails
+public sealed class CompanyDetails
 {
     public CompanyDetails()
     {

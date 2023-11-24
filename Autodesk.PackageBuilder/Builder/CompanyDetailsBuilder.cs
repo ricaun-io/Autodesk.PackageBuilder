@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder;
 
-public class CompanyDetailsBuilder : SingleBuilderBase<CompanyDetailsBuilder, CompanyDetails>, ICompanyDetailsBuilder
+public sealed class CompanyDetailsBuilder : SingleBuilderBase<CompanyDetailsBuilder, CompanyDetails>, ICompanyDetailsBuilder
 {
     public CompanyDetailsBuilder(CompanyDetails companyDetails)
     {

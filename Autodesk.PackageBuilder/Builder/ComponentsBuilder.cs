@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder;
 
-public class ComponentsBuilder : ListBuilderBase<ComponentsBuilder, Components>, IComponentsEntryBuilder
+public sealed class ComponentsBuilder : ListBuilderBase<ComponentsBuilder, Components>, IComponentsEntryBuilder
 {
     public ComponentsBuilder(List<Components> components)
     {

@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder.Model.Application;
 
-public class RuntimeRequirements
+public sealed class RuntimeRequirements
 {
     public RuntimeRequirements()
     {

@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder.Model.Application;
 
-public class ComponentEntry
+public sealed class ComponentEntry
 {
     public ComponentEntry()
     {

@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder.Model.Addin;
 
-public class AddInApplication
+public sealed class AddInApplication
 {
     [XmlAttribute] public string Type { get; set; }
     [XmlElement] public string Name { get; set; }

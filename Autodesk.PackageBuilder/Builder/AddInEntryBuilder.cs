@@ -2,7 +2,7 @@
 
 namespace Autodesk.PackageBuilder;
 
-public class AddInEntryBuilder : ListBuilderBase<AddInEntryBuilder, AddInModel>, IAddInEntryBuilder
+public sealed class AddInEntryBuilder : ListBuilderBase<AddInEntryBuilder, AddInModel>, IAddInEntryBuilder
 {
     public AddInEntryBuilder(List<AddInModel> models)
     {
