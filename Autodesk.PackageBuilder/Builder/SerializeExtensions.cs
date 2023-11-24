@@ -43,19 +43,15 @@ public static class SerializeExtensions
     /// <returns></returns>
     public static string SerializeObject<T>(this T toSerialize) where T : IPackageSerializable
     {
-        XmlSerializer xmlSerializer = new XmlSerializer(toSerialize.GetType());
-        XmlSerializerNamespaces namespaces = new XmlSerializerNamespaces();
+        var xmlSerializer = new XmlSerializer(toSerialize.GetType());
+        var namespaces = new XmlSerializerNamespaces();
         namespaces.Add("", "");
-        using (var sw = new Utf8StringWriter())
-        {
-            using (var tx = new XmlTextWriter(sw))
-            {
-                tx.Formatting = Formatting.Indented;
-                xmlSerializer.Serialize(tx, toSerialize, namespaces);
-                string strXmlText = sw.ToString();
-                return strXmlText;
-            }
-        }
+
+        using var stringWriter = new Utf8StringWriter();
+        using var xmlWriter = new XmlTextWriter(stringWriter);
+        xmlWriter.Formatting = Formatting.Indented;
+        xmlSerializer.Serialize(xmlWriter, toSerialize, namespaces);
+        return stringWriter.ToString();
     }
 
     /// <summary>

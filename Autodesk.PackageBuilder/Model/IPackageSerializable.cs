@@ -1,5 +1,3 @@
 ﻿namespace Autodesk.PackageBuilder.Model;
 
-public interface IPackageSerializable
-{
-}
+public interface IPackageSerializable;

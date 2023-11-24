@@ -1,6 +1,4 @@
-﻿using Autodesk.PackageBuilder;
-
-namespace Examples;
+﻿namespace Examples;
 
 public class DemoAddinBuilder : RevitAddInsBuilder
 {
