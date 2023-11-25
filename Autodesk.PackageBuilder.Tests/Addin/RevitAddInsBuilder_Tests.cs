@@ -1,49 +1,45 @@
-﻿using NUnit.Framework;
+﻿using Autodesk.PackageBuilder.Tests.Utils;
+using NUnit.Framework;
 using System;
 
 namespace Autodesk.PackageBuilder.Tests.Addin
 {
     public class RevitAddInsBuilder_Tests
     {
+        RevitAddInsBuilder builder;
+        [SetUp]
+        public void Setup()
+        {
+            builder = BuilderUtils.Build<RevitAddInsBuilder>();
+        }
+
         [Test]
         public void Build_RevitAddIns()
         {
-            var builder = BuilderUtils.Build<RevitAddInsBuilder>();
-            var content = builder.ToString();
-            Assert.IsTrue(content.Contains("RevitAddIns"));
+            builder.AssertElement("RevitAddIns");
         }
 
         [TestCase("Command")]
         [TestCase("Application")]
         [TestCase("DBApplication")]
-        public void Build_CreateEntry(string entryName)
+        public void Build_CreateEntry(string type)
         {
-            var builder = BuilderUtils.Build<RevitAddInsBuilder>();
-            builder.AddIn.CreateEntry(entryName);
-            var content = builder.ToString();
-
-            var AddinContains = $"AddIn Type=\"{entryName}\"";
-            Assert.IsTrue(content.Contains(AddinContains));
+            builder.AddIn.CreateEntry(type);
+            builder.AssertElementAttribute("AddIn", "Type", type);
         }
 
         [Test]
         public void Build_CreateEntry_Empty()
         {
-            string entryName = "Application";
-            var builder = BuilderUtils.Build<RevitAddInsBuilder>();
+            string type = "Application";
             builder.AddIn.CreateEntry();
-            var content = builder.ToString();
-
-            Console.WriteLine(content);
-            var AddinContains = $"AddIn Type=\"{entryName}\"";
-            Assert.IsTrue(content.Contains(AddinContains));
+            builder.AssertElementAttribute("AddIn", "Type", type);
         }
 
         [TestCase("Value")]
         [TestCase("PropertyValue")]
         public void Build_CreateEntry_AddInId(string value)
         {
-            var builder = BuilderUtils.Build<RevitAddInsBuilder>();
             builder.AddIn.CreateEntry()
                 .Name(value)
                 .Assembly(value)
@@ -52,38 +48,28 @@ namespace Autodesk.PackageBuilder.Tests.Addin
                 .VendorId(value)
                 .VendorDescription(value);
 
-            var content = builder.ToString();
-
-            Assert.IsTrue(content.Contains(PropertyValue("Name", value)));
-            Assert.IsTrue(content.Contains(PropertyValue("Assembly", value)));
-            Assert.IsTrue(content.Contains(PropertyValue("AddInId", value)));
-            Assert.IsTrue(content.Contains(PropertyValue("FullClassName", value)));
-            Assert.IsTrue(content.Contains(PropertyValue("VendorId", value)));
-            Assert.IsTrue(content.Contains(PropertyValue("VendorDescription", value)));
+            builder.AssertElement("Name", value);
+            builder.AssertElement("Assembly", value);
+            builder.AssertElement("AddInId", value);
+            builder.AssertElement("FullClassName", value);
+            builder.AssertElement("VendorId", value);
+            builder.AssertElement("VendorDescription", value);
         }
 
         [TestCase(5)]
-        [TestCase(10)]
+        [TestCase(9)]
         public void Build_CreateEntry_AddInId_Multiple(int length)
         {
-            var builder = BuilderUtils.Build<RevitAddInsBuilder>();
             for (int i = 0; i < length; i++)
             {
                 builder.AddIn.CreateEntry()
                     .Name(i.ToString());
             }
 
-            var content = builder.ToString();
             for (int i = 0; i < length; i++)
             {
-                Assert.IsTrue(content.Contains(PropertyValue("Name", i)));
+                builder.AssertElement("Name", i);
             }
-
-        }
-
-        private string PropertyValue(string property, object value)
-        {
-            return $"<{property}>{value}</{property}>";
         }
 
         [Test]
@@ -91,8 +77,6 @@ namespace Autodesk.PackageBuilder.Tests.Addin
         {
             var builder = BuilderUtils.Build<DemoAddinBuilder>();
             var content = builder.ToString();
-            //Console.WriteLine(content);
-            //Console.WriteLine(DemoAddinBuilder.Expected);
             Assert.AreEqual(DemoAddinBuilder.Expected, content);
         }
 

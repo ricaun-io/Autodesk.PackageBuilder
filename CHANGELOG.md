@@ -17,6 +17,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Test `BuilderUtils`
 - Test `Builder` create file.
 - Test `RevitAddInsBuilder`
+- Test `PackageContentsBuilder`
+- Add `AssertBuilderUtils`
 
 ## [1.0.5] / 2021-12-21
 - Update Build Project
