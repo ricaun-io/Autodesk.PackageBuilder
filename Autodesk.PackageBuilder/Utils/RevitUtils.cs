@@ -6,7 +6,7 @@
     public static class RevitUtils
     {
         /// <summary>
-        /// Set <see cref="AutodeskProducts.Revit"/> and <see cref="ProductTypes.Application"/>.
+        /// Set AutodeskProduct to <see cref="AutodeskProducts.Revit"/> and ProductType to <see cref="ProductTypes.Application"/>.
         /// </summary>
         /// <param name="applicationPackageBuilder"></param>
         /// <returns></returns>

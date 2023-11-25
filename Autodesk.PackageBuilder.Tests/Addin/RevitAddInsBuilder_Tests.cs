@@ -77,7 +77,7 @@ namespace Autodesk.PackageBuilder.Tests.Addin
         {
             var builder = BuilderUtils.Build<DemoAddinBuilder>();
             var content = builder.ToString();
-            Assert.AreEqual(DemoAddinBuilder.Expected, content);
+            Assert.AreEqual(DemoAddinBuilder.Expected, content, $"Expected: {DemoAddinBuilder.Expected}\nContent: {content}");
         }
 
         public class DemoAddinBuilder : RevitAddInsBuilder
