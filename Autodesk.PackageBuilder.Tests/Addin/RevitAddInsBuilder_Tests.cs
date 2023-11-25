@@ -1,6 +1,5 @@
 ﻿using NUnit.Framework;
 using System;
-using System.IO;
 
 namespace Autodesk.PackageBuilder.Tests.Addin
 {
@@ -85,6 +84,43 @@ namespace Autodesk.PackageBuilder.Tests.Addin
         private string PropertyValue(string property, object value)
         {
             return $"<{property}>{value}</{property}>";
+        }
+
+        [Test]
+        public void Build_RevitAddIns_DemoClass()
+        {
+            var builder = BuilderUtils.Build<DemoAddinBuilder>();
+            var content = builder.ToString();
+            //Console.WriteLine(content);
+            //Console.WriteLine(DemoAddinBuilder.Expected);
+            Assert.AreEqual(DemoAddinBuilder.Expected, content);
+        }
+
+        public class DemoAddinBuilder : RevitAddInsBuilder
+        {
+            public static string Expected => """"
+                <?xml version="1.0" encoding="utf-8"?>
+                <RevitAddIns>
+                  <AddIn Type="Application">
+                    <Name>RevitAddin</Name>
+                    <Assembly>RevitAddin.dll</Assembly>
+                    <AddInId>11111111-2222-3333-4444-555555555555</AddInId>
+                    <FullClassName>RevitAddin.App</FullClassName>
+                    <VendorId>RevitAddin</VendorId>
+                    <VendorDescription>RevitAddin</VendorDescription>
+                  </AddIn>
+                </RevitAddIns>
+                """";
+            public DemoAddinBuilder()
+            {
+                AddIn.CreateEntry("Application")
+                    .Name("RevitAddin")
+                    .Assembly("RevitAddin.dll")
+                    .AddInId("11111111-2222-3333-4444-555555555555")
+                    .FullClassName("RevitAddin.App")
+                    .VendorId("RevitAddin")
+                    .VendorDescription("RevitAddin");
+            }
         }
     }
 }

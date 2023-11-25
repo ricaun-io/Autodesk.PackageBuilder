@@ -57,8 +57,8 @@
             {
                 builder.AddIn.CreateEntry("Application")
                     .Name("RevitAddin")
-                    .AddInId("F6DB5994-D788-4060-9C97-16F6C1B07857")
                     .Assembly("RevitAddin.dll")
+                    .AddInId("11111111-2222-3333-4444-555555555555")
                     .FullClassName("RevitAddin.App")
                     .VendorId("RevitAddin")
                     .VendorDescription("RevitAddin");

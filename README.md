@@ -134,12 +134,11 @@ To get the `RevitAddin.addin` like this:
 <RevitAddIns>
   <AddIn Type="Application">
     <Name>RevitAddin</Name>
-    <AddInId>F6DB5994-D788-4060-9C97-16F6C1B07857</AddInId>
+    <AddInId>11111111-2222-3333-4444-555555555555</AddInId>
     <Assembly>RevitAddin.dll</Assembly>
     <FullClassName>RevitAddin.App</FullClassName>
     <VendorId>RevitAddin</VendorId>
     <VendorDescription>RevitAddin</VendorDescription>
-    <AllowLoadingIntoExistingSession>true</AllowLoadingIntoExistingSession>
   </AddIn>
 </RevitAddIns>
 ```
@@ -153,7 +152,7 @@ public class DemoAddinBuilder : RevitAddInsBuilder
     {
         AddIn.CreateEntry("Application")
             .Name("RevitAddin")
-            .AddInId("F6DB5994-D788-4060-9C97-16F6C1B07857")
+            .AddInId("11111111-2222-3333-4444-555555555555")
             .Assembly("RevitAddin.dll")
             .FullClassName("RevitAddin.App")
             .VendorId("RevitAddin")
@@ -169,7 +168,7 @@ var builder = BuilderUtils.Build<RevitAddInsBuilder>(builder =>
 {
     builder.AddIn.CreateEntry("Application")
         .Name("RevitAddin")
-        .AddInId("F6DB5994-D788-4060-9C97-16F6C1B07857")
+        .AddInId("11111111-2222-3333-4444-555555555555")
         .Assembly("RevitAddin.dll")
         .FullClassName("RevitAddin.App")
         .VendorId("RevitAddin")

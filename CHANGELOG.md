@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Enable `DocumentationFile` in package.
 - Update `BuilderUtils` to return instance.
 - Obsolete and internal `AllowLoadingIntoExistingSession`
+- Update `Example` Guid.
 ### Tests
 - Test `Constants`
 - Test `BuilderUtils`
