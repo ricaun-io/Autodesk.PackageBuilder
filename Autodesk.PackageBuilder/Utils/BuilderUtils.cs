@@ -36,6 +36,19 @@
         /// Create a new instance of the <typeparamref name="TBuilder"/> type, <paramref name="config"/> the instance, and <see cref="IBuilder.Build(string)"./>.
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
+        /// <param name="path"></param>
+        /// <param name="config"></param>
+        /// <returns></returns>
+        public static TBuilder Build<TBuilder>(string path, Action<TBuilder> config)
+            where TBuilder : IBuilder, new()
+        {
+            return Build(config, path);
+        }
+
+        /// <summary>
+        /// Create a new instance of the <typeparamref name="TBuilder"/> type, <paramref name="config"/> the instance, and <see cref="IBuilder.Build(string)"./>.
+        /// </summary>
+        /// <typeparam name="TBuilder"></typeparam>
         /// <param name="config"></param>
         /// <param name="path"></param>
         /// <returns></returns>

@@ -32,6 +32,17 @@ namespace Autodesk.PackageBuilder.Tests
         [TestCase("path")]
         [TestCase("path2")]
         [TestCase("path3")]
+        public void Build_ShouldBe_Config_Build(string path)
+        {
+            var builder = BuilderUtils.Build<Builder>((build) => { build.Config = true; });
+            builder.Build(path);
+            Assert.IsTrue(builder.Config);
+            Assert.AreEqual(builder.Path, path);
+        }
+
+        [TestCase("path")]
+        [TestCase("path2")]
+        [TestCase("path3")]
         public void Build_ShouldBe_Path(string path)
         {
             var builder = BuilderUtils.Build<Builder>(path);
@@ -41,9 +52,19 @@ namespace Autodesk.PackageBuilder.Tests
         [TestCase("path")]
         [TestCase("path2")]
         [TestCase("path3")]
-        public void Build_ShouldBe_Path_Config(string path)
+        public void Build_ShouldBe_Config_Path(string path)
         {
             var builder = BuilderUtils.Build<Builder>((build) => { build.Config = true; }, path);
+            Assert.IsTrue(builder.Config);
+            Assert.AreEqual(builder.Path, path);
+        }
+
+        [TestCase("path")]
+        [TestCase("path2")]
+        [TestCase("path3")]
+        public void Build_ShouldBe_Path_Config(string path)
+        {
+            var builder = BuilderUtils.Build<Builder>(path, (build) => { build.Config = true; });
             Assert.IsTrue(builder.Config);
             Assert.AreEqual(builder.Path, path);
         }

@@ -122,7 +122,15 @@ BuilderUtils.Build<DemoPackageBuilder>("PackageContents.xml");
 
 // or
 
+BuilderUtils.Build<DemoPackageBuilder>("PackageContents.xml", builder => {...});
+
+// or
+
 BuilderUtils.Build<DemoPackageBuilder>(builder => {...}, "PackageContents.xml");
+
+// or
+
+BuilderUtils.Build<DemoPackageBuilder>(builder => {...}).Build("PackageContents.xml");
 ```
 
 ### Create RevitAddin.addin
@@ -197,7 +205,15 @@ BuilderUtils.Build<DemoAddinBuilder>("RevitAddin.addin");
 
 // or
 
+BuilderUtils.Build<DemoAddinBuilder>("RevitAddin.addin", builder => {...});
+
+// or
+
 BuilderUtils.Build<DemoAddinBuilder>(builder => {...}, "RevitAddin.addin");
+
+// or
+
+BuilderUtils.Build<DemoAddinBuilder>(builder => {...}).Build("RevitAddin.addin");
 ```
 
 ## Package Inspiration / Reference
