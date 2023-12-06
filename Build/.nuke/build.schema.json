@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "Build Schema",
   "$ref": "#/definitions/build",
+  "title": "Build Schema",
   "definitions": {
     "build": {
       "type": "object",
@@ -12,6 +12,10 @@
         },
         "Folder": {
           "type": "string"
+        },
+        "GitHubToken": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
         },
         "Help": {
           "type": "boolean",
@@ -24,6 +28,7 @@
             "AppVeyor",
             "AzurePipelines",
             "Bamboo",
+            "Bitbucket",
             "Bitrise",
             "GitHubActions",
             "GitLab",
@@ -47,6 +52,14 @@
           "type": "boolean",
           "description": "Disables displaying the NUKE logo"
         },
+        "NugetApiKey": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
+        "NugetApiUrl": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
         "Partition": {
           "type": "string",
           "description": "Partition to use on CI"
@@ -65,9 +78,23 @@
         "ReleaseExample": {
           "type": "boolean"
         },
+        "ReleaseFolder": {
+          "type": "string"
+        },
+        "ReleaseNameVersion": {
+          "type": "boolean"
+        },
         "Root": {
           "type": "string",
           "description": "Root directory during build execution"
+        },
+        "SignFile": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
+        },
+        "SignPassword": {
+          "type": "string",
+          "default": "Secrets must be entered via 'nuke :secrets [profile]'"
         },
         "Skip": {
           "type": "array",
@@ -82,7 +109,8 @@
               "GitRelease",
               "Pack",
               "Release",
-              "Sign"
+              "Sign",
+              "Test"
             ]
           }
         },
@@ -103,9 +131,19 @@
               "GitRelease",
               "Pack",
               "Release",
-              "Sign"
+              "Sign",
+              "Test"
             ]
           }
+        },
+        "TestBuildStopWhenFailed": {
+          "type": "boolean"
+        },
+        "TestProjectName": {
+          "type": "string"
+        },
+        "TestResults": {
+          "type": "boolean"
         },
         "Verbosity": {
           "type": "string",
