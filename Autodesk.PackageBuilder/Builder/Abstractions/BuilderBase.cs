@@ -1,6 +1,7 @@
 ﻿namespace Autodesk.PackageBuilder
 {
     using System;
+    using System.Linq;
     using System.Runtime.CompilerServices;
     /// <summary>
     /// BuilderBase
@@ -24,43 +25,45 @@
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
-        /// <param name="name"></param>
+        /// <param name="propertyName"></param>
         /// <returns></returns>
-        protected TBuilder SetNewPropertyValue<T>(object value, [CallerMemberName] string name = null) where T : new()
+        protected TBuilder SetNewPropertyValue<T>(object value, [CallerMemberName] string propertyName = null) where T : new()
         {
-            return SetNewPropertyValue<T>(Data, name, value);
+            return SetNewPropertyValue<T>(Data, propertyName, value);
         }
 
-        private TBuilder SetNewPropertyValue<T>(object instance, string method, object value) where T : new()
+        internal T GetNewPropertyValue<T>(object instance) where T : new()
         {
-            var data = new T();
-            var name = data.GetType().Name;
-
             var type = instance.GetType();
-            var property = type.GetProperty(name) ??
+            var property = type.GetProperties().FirstOrDefault(e=>e.PropertyType == typeof(T)) ??
                            throw new NullReferenceException(
-                               $"Property '{name}' in class {type.Name} not found");
+                               $"Property with type '{typeof(T)}' in class {type.Name} not found");
 
             if (property.GetValue(instance) == null)
-                property.SetValue(instance, data);
+                property.SetValue(instance, new T());
 
-            return SetPropertyValue(property.GetValue(instance), method, value);
+            return (T)property.GetValue(instance);
+        }
+
+        private TBuilder SetNewPropertyValue<T>(object instance, string propertyName, object value) where T : new()
+        {
+            var data = GetNewPropertyValue<T>(instance);
+            return SetPropertyValue(data, propertyName, value);
         }
 
         /// <summary>
         /// SetPropertyValue
         /// </summary>
         /// <param name="value"></param>
-        /// <param name="name"></param>
+        /// <param name="propertyName"></param>
         /// <returns></returns>
-        protected TBuilder SetPropertyValue(object value, [CallerMemberName] string name = null)
+        protected TBuilder SetPropertyValue(object value, [CallerMemberName] string propertyName = null)
         {
-            return SetPropertyValue(Data, name, value);
+            return SetPropertyValue(Data, propertyName, value);
         }
 
-        private TBuilder SetPropertyValue(object instance, string method, object value)
+        private TBuilder SetPropertyValue(object instance, string propertyName, object value)
         {
-            var propertyName = method;
             var type = instance.GetType();
             var property = type.GetProperty(propertyName) ??
                            throw new NullReferenceException(

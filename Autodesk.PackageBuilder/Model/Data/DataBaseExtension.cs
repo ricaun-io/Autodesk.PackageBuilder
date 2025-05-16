@@ -13,9 +13,9 @@ public static class DataBaseExtension
     /// <param name="name">The name of the attribute.</param>
     /// <param name="value">The value of the attribute.</param>
     /// <returns>The modified model instance.</returns>
-    public static T CreateAttribute<T>(this T model, string name, object value) where T : DataBase
+    public static T CreateDataAttribute<T>(this T model, string name, object value) where T : DataBase
     {
-        model.Aux.Add(name, (value, false));
+        model.Auxiliary.Add(name, (value, false));
         return model;
     }
 
@@ -26,9 +26,9 @@ public static class DataBaseExtension
     /// <param name="model">The model to which the entry element will be added.</param>
     /// <param name="name">The name of the entry element.</param>
     /// <returns>The newly created <see cref="DataBase"/> entry element.</returns>
-    public static DataBase CreateEntryElement<T>(this T model, string name) where T : DataBase
+    public static DataBase CreateDataElement<T>(this T model, string name) where T : DataBase
     {
-        return model.CreateEntryElement(name, new DataBase());
+        return model.CreateDataElement(name, new DataBase());
     }
 
     /// <summary>
@@ -40,9 +40,9 @@ public static class DataBaseExtension
     /// <param name="name">The name of the entry element.</param>
     /// <param name="value">The value of the entry element.</param>
     /// <returns>The entry element value.</returns>
-    public static TElement CreateEntryElement<T, TElement>(this T model, string name, TElement value) where T : DataBase
+    public static TElement CreateDataElement<T, TElement>(this T model, string name, TElement value) where T : DataBase
     {
-        model.Aux.Add(name, (value, true));
+        model.Auxiliary.Add(name, (value, true));
         return value;
     }
 }

@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `DataBase` with custom `IXmlSerializable`.
 - Add `DataBaseExtension` with `CreateEntryElement` and `CreateAttribute`.
 - Add `DataBuilderBase` and `DataBuilderBaseExtension`.
+### Tests
+- Add `DataBuild_Tests` to test `DataBuilder`
 
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features

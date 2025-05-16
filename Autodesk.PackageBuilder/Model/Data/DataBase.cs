@@ -16,7 +16,7 @@ public class DataBase : IXmlSerializable
     /// Gets the auxiliary dictionary for storing additional attributes and elements.
     /// The key is the name, and the value is a tuple containing the value and a flag indicating if it is an element.
     /// </summary>
-    internal Dictionary<string, (object Value, bool IsElement)> Aux { get; } = new();
+    internal Dictionary<string, (object Value, bool IsElement)> Auxiliary { get; } = new();
 
     /// <summary>
     /// This method is reserved and should not be used. When implementing the IXmlSerializable interface, you should return null from this method.
@@ -64,7 +64,7 @@ public class DataBase : IXmlSerializable
         }
 
         // Write auxiliary attributes
-        foreach (var kvp in Aux)
+        foreach (var kvp in Auxiliary)
         {
             if (!kvp.Value.IsElement)
             {
@@ -99,7 +99,7 @@ public class DataBase : IXmlSerializable
         }
 
         // Write auxiliary elements
-        foreach (var kvp in Aux)
+        foreach (var kvp in Auxiliary)
         {
             if (kvp.Value.IsElement)
             {

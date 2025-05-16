@@ -20,9 +20,9 @@
         /// <param name="name">The name of the attribute to create.</param>
         /// <param name="value">The value of the attribute.</param>
         /// <returns>The current <see cref="DataBuilderBase"/> instance for method chaining.</returns>
-        public DataBuilderBase CreateDataAttribute(string name, object value)
+        public DataBuilderBase CreateAttribute(string name, object value)
         {
-            Data.CreateAttribute(name, value);
+            Data.CreateDataAttribute(name, value);
             return this;
         }
 
@@ -31,21 +31,73 @@
         /// </summary>
         /// <param name="name">The name of the data element to create.</param>
         /// <returns>A new <see cref="DataBuilderBase"/> instance for the created data element.</returns>
-        public DataBuilderBase CreateDataElement(string name)
+        public DataBuilderBase CreateElement(string name)
         {
-            return new DataBuilderBase(Data.CreateEntryElement(name));
+            return new DataBuilderBase(Data.CreateDataElement(name));
         }
 
         /// <summary>
-        /// Creates a new data element with the specified name and value, and returns a builder for the new element.
+        /// Creates a new data element with the specified name and value in the underlying <see cref="DataBase"/>.
         /// </summary>
-        /// <typeparam name="TElement">The type of the data element, which must derive from <see cref="DataBase"/>.</typeparam>
+        /// <typeparam name="TElement">The type of the value to associate with the new data element.</typeparam>
         /// <param name="name">The name of the data element to create.</param>
-        /// <param name="value">The value of the data element.</param>
-        /// <returns>A new <see cref="DataBuilderBase"/> instance for the created data element.</returns>
-        public DataBuilderBase CreateDataElement<TElement>(string name, TElement value) where TElement : DataBase
+        /// <param name="value">The value to associate with the new data element. If the value is a <see cref="DataBase"/>, it will be used to create a nested element.</param>
+        /// <returns>
+        /// A new <see cref="DataBuilderBase"/> instance for the created data element if <paramref name="value"/> is a <see cref="DataBase"/>; otherwise, <c>null</c>.
+        /// </returns>
+        public DataBuilderBase CreateElement(string name, object value)
         {
-            return new DataBuilderBase(Data.CreateEntryElement(name, value));
+            if (value is DataBase dataBase)
+                return new DataBuilderBase(Data.CreateDataElement(name, dataBase));
+
+            Data.CreateDataElement(name, value);
+            return null;
+        }
+
+        /// <summary>
+        /// Creates a new data attribute with the specified name and value in a new instance of <typeparamref name="T"/> derived from <see cref="DataBase"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of <see cref="DataBase"/> to use for creating the attribute. Must have a parameterless constructor.</typeparam>
+        /// <param name="name">The name of the attribute to create.</param>
+        /// <param name="value">The value of the attribute.</param>
+        /// <returns>The current <see cref="DataBuilderBase"/> instance for method chaining.</returns>
+        public DataBuilderBase CreateAttribute<T>(string name, object value) where T : DataBase, new()
+        {
+            var data = GetNewPropertyValue<T>(Data);
+            data.CreateDataAttribute(name, value);
+            return this;
+        }
+
+        /// <summary>
+        /// Creates a new data element with the specified name in a new instance of <typeparamref name="T"/> derived from <see cref="DataBase"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of <see cref="DataBase"/> to use for creating the element. Must have a parameterless constructor.</typeparam>
+        /// <param name="name">The name of the data element to create.</param>
+        /// <returns>A new <see cref="DataBuilderBase"/> instance for the created data element.</returns>
+        public DataBuilderBase CreateElement<T>(string name) where T : DataBase, new()
+        {
+            var data = GetNewPropertyValue<T>(Data);
+            return new DataBuilderBase(data.CreateDataElement(name));
+        }
+
+        /// <summary>
+        /// Creates a new data element with the specified name and value in a new instance of <typeparamref name="T"/> derived from <see cref="DataBase"/>.
+        /// </summary>
+        /// <typeparam name="T">The type of <see cref="DataBase"/> to use for creating the element. Must have a parameterless constructor.</typeparam>
+        /// <param name="name">The name of the data element to create.</param>
+        /// <param name="value">The value to associate with the new data element. If the value is a <see cref="DataBase"/>, it will be used to create a nested element.</param>
+        /// <returns>
+        /// A new <see cref="DataBuilderBase"/> instance for the created data element if <paramref name="value"/> is a <see cref="DataBase"/>; otherwise, <c>null</c>.
+        /// </returns>
+        public DataBuilderBase CreateElement<T>(string name, object value) where T : DataBase, new()
+        {
+            var data = GetNewPropertyValue<T>(Data);
+
+            if (value is DataBase dataBase)
+                return new DataBuilderBase(data.CreateDataElement(name, dataBase));
+
+            data.CreateDataElement(name, value);
+            return null;
         }
     }
 }
