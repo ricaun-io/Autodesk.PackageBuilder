@@ -216,13 +216,68 @@ BuilderUtils.Build<DemoAddinBuilder>(builder => {...}, "RevitAddin.addin");
 BuilderUtils.Build<DemoAddinBuilder>(builder => {...}).Build("RevitAddin.addin");
 ```
 
+### Not implemented Attribute and Element
+
+If the `Attribute` or `Element` is not implemented, you can use `DataBuilder` to access the methods `CreateAttribute` and `CreateElement`.
+
+```C#
+var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
+{
+    builder.Components
+        .CreateEntry("Revit 2021")
+        .DataBuilder.CreateAttribute("Attribute", "Value");
+
+    builder.Components
+        .CreateEntry("Revit 2022")
+        .DataBuilder.CreateElement("Element", "Value");
+
+    builder.Components
+        .CreateEntry("Revit 2023")
+        .DataBuilder.CreateAttribute<ComponentEntry>("Attribute", "Value");
+
+    builder.Components
+        .CreateEntry("Revit 2024")
+        .DataBuilder.CreateElement<ComponentEntry>("Element", "Value");
+});
+```
+
+#### Create custom Element
+
+The class `DataBase` could be used to create custom `Element`.
+```C#
+public class CustomElement : DataBase
+{
+    [XmlAttribute]
+    public string Name { get; set; }
+    [XmlElement]
+    public string Value { get; set; }
+}
+```
+
+The `DataBase` uses a `XmlSerializer` to serialize the object.
+
+```C#
+var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
+{
+    var custom = new CustomElement()
+    {
+        Name = "Name",
+        Value = "Value"
+    };
+
+    builder.Components
+        .CreateEntry("Revit 2021")
+        .DataBuilder.CreateElement("CustomElement", custom);
+});
+```
+
 ## Package Inspiration / Reference
 
-This package was inspared by [InnoSetup.ScriptBuilder](https://github.com/ReactiveBIM/InnoSetup.ScriptBuilder) package.
+This package was inspired by [InnoSetup.ScriptBuilder](https://github.com/ReactiveBIM/InnoSetup.ScriptBuilder) package.
 
 ## License
 
-This package is [licensed](LICENSE) under the [MIT Licence](https://en.wikipedia.org/wiki/MIT_License).
+This package is [licensed](LICENSE) under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
 ---
 
