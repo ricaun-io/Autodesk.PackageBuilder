@@ -3,6 +3,11 @@
     /// <summary>
     /// Provides a base builder for constructing and manipulating <see cref="DataBase"/> objects.
     /// </summary>
+    /// <remarks>
+    /// This builder offers a fluent API for creating and modifying attributes and elements
+    /// within a <see cref="DataBase"/> instance. It supports both direct manipulation of the
+    /// underlying data model and creation of nested elements or attributes using generic overloads.
+    /// </remarks>
     public class DataBuilderBase : SingleBuilderBase<DataBuilderBase, DataBase>
     {
         /// <summary>
@@ -39,9 +44,11 @@
         /// <summary>
         /// Creates a new data element with the specified name and value in the underlying <see cref="DataBase"/>.
         /// </summary>
-        /// <typeparam name="TElement">The type of the value to associate with the new data element.</typeparam>
         /// <param name="name">The name of the data element to create.</param>
-        /// <param name="value">The value to associate with the new data element. If the value is a <see cref="DataBase"/>, it will be used to create a nested element.</param>
+        /// <param name="value">
+        /// The value to associate with the new data element. If the value is a <see cref="DataBase"/>, it will be used to create a nested element.
+        /// Otherwise, the value will be set directly.
+        /// </param>
         /// <returns>
         /// A new <see cref="DataBuilderBase"/> instance for the created data element if <paramref name="value"/> is a <see cref="DataBase"/>; otherwise, <c>null</c>.
         /// </returns>
