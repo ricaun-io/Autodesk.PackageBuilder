@@ -2,7 +2,7 @@
 {
     using System.Xml;
     using System.Xml.Serialization;
-    public class AddInApplication : ModelBase
+    public class AddInApplication : DataBase
     {
         [XmlAttribute]
         public string Type { get; set; }

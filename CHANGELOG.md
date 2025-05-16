@@ -8,8 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Features
 - Support custom `Element` and `Attribute`.
 ### PackageBuilder
-- Add `ModelBase` with custom `IXmlSerializable`.
-- Add `ModelBaseExtension` with `CreateEntryElement` and `CreateAttribute`.
+- Add `DataBase` with custom `IXmlSerializable`.
+- Add `DataBaseExtension` with `CreateEntryElement` and `CreateAttribute`.
+- Add `DataBuilderBase` and `DataBuilderBaseExtension`.
 
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features

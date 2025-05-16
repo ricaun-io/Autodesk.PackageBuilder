@@ -2,7 +2,7 @@
 {
     using System.Xml;
     using System.Xml.Serialization;
-    public class Components : ModelBase
+    public class Components : DataBase
     {
         [XmlAttribute]
         public string Description { get; set; }

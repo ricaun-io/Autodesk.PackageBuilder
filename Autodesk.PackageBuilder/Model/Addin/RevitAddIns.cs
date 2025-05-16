@@ -5,7 +5,7 @@
     using System.Xml;
     using System.Xml.Serialization;
     [Serializable]
-    public class RevitAddIns : ModelBase, IPackageSerializable
+    public class RevitAddIns : DataBase, IPackageSerializable
     {
         [XmlElement]
         public List<AddInModel> AddIn { get; set; } = new List<AddInModel>();

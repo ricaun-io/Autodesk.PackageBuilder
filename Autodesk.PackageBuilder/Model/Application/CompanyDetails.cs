@@ -2,7 +2,7 @@
 {
     using System.Xml;
     using System.Xml.Serialization;
-    public class CompanyDetails : ModelBase
+    public class CompanyDetails : DataBase
     {
         public CompanyDetails() { }
         public CompanyDetails(string name, string url, string email = null)

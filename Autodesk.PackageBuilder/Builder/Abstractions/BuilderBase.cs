@@ -9,13 +9,16 @@
     /// <typeparam name="TData"></typeparam>
     public abstract class BuilderBase<TBuilder, TData>
         where TBuilder : class
-        where TData : new()
+        where TData : DataBase, new()
     {
         /// <summary>
         /// Data
         /// </summary>
         protected TData Data { get; set; }
-
+        /// <summary>
+        /// DataBuilder
+        /// </summary>
+        public DataBuilderBase DataBuilder => new(Data);
         /// <summary>
         /// SetNewPropertyValue
         /// </summary>

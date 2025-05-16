@@ -5,7 +5,7 @@
     using System.Xml;
     using System.Xml.Serialization;
     [Serializable]
-    public class ApplicationPackage : ModelBase, IPackageSerializable
+    public class ApplicationPackage : DataBase, IPackageSerializable
     {
         [XmlAttribute]
         public string SchemaVersion { get; set; }
