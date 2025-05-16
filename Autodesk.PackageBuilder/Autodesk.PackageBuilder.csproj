@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Version>1.0.6</Version>
-  </PropertyGroup>
-
-  <PropertyGroup>
     <Company>ricaun</Company>
     <Authors>Luiz Henrique Cassettari</Authors>
     <CopyrightYears>$([System.DateTime]::Now.ToString('yyyy'))</CopyrightYears>

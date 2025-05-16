@@ -2,7 +2,7 @@
 {
     using System.Xml;
     using System.Xml.Serialization;
-    public class ComponentEntry
+    public class ComponentEntry : ModelBase
     {
         public ComponentEntry() { }
         public ComponentEntry(string appName, string moduleName, string version = null, string appDescription = null)

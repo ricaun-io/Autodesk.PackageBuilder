@@ -2,7 +2,7 @@
 {
     using System.Xml;
     using System.Xml.Serialization;
-    public class RuntimeRequirements
+    public class RuntimeRequirements : ModelBase
     {
         public RuntimeRequirements()
         {
