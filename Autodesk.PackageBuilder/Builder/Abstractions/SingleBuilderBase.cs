@@ -7,7 +7,7 @@
     /// <typeparam name="TData"></typeparam>
     public abstract class SingleBuilderBase<TBuilder, TData> : BuilderBase<TBuilder, TData>
         where TBuilder : class
-        where TData : DataBase, new()
+        where TData : ExtensibleData, new()
     {
         /// <summary>
         /// SetDataInternal

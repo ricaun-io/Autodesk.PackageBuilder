@@ -10,7 +10,7 @@
     /// <typeparam name="TData"></typeparam>
     public abstract class BuilderBase<TBuilder, TData>
         where TBuilder : class
-        where TData : DataBase, new()
+        where TData : ExtensibleData, new()
     {
         /// <summary>
         /// Data

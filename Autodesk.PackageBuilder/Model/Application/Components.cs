@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents a collection of application components, including runtime requirements and a component entry.
     /// </summary>
-    public class Components : DataBase
+    public class Components : ExtensibleData
     {
         /// <summary>
         /// Gets or sets the description of the components.

@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents an add-in model for Autodesk Package Builder, containing metadata for an add-in.
     /// </summary>
-    public class AddInModel : DataBase
+    public class AddInModel : ExtensibleData
     {
         /// <summary>
         /// Gets or sets the type of the add-in.

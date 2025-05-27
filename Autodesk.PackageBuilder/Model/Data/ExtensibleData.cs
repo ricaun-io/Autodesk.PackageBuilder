@@ -10,7 +10,7 @@ namespace Autodesk.PackageBuilder;
 /// <summary>
 /// Represents a base class for XML-serializable data models, supporting dynamic attributes and elements.
 /// </summary>
-public class DataBase : IXmlSerializable
+public class ExtensibleData : IXmlSerializable
 {
     /// <summary>
     /// Gets the auxiliary dictionary for storing additional attributes and elements.

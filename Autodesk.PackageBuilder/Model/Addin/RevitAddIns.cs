@@ -8,7 +8,7 @@
     /// Represents a collection of Revit add-in definitions for XML serialization.
     /// </summary>
     [Serializable]
-    public class RevitAddIns : DataBase, IPackageSerializable
+    public class RevitAddIns : ExtensibleData, IPackageSerializable
     {
         /// <summary>
         /// Gets or sets the list of Revit add-in models.

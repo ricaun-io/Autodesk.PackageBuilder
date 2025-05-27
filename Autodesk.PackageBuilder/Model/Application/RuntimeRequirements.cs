@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents the runtime requirements for an application, including operating system, platform, and supported series range.
     /// </summary>
-    public class RuntimeRequirements : DataBase
+    public class RuntimeRequirements : ExtensibleData
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RuntimeRequirements"/> class.

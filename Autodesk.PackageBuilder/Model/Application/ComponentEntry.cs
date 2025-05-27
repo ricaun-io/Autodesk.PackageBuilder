@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents an application component entry with metadata for XML serialization.
     /// </summary>
-    public class ComponentEntry : DataBase
+    public class ComponentEntry : ExtensibleData
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ComponentEntry"/> class.

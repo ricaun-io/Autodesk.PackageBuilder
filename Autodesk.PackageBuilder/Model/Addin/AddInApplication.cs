@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents an add-in application definition for Autodesk products.
     /// </summary>
-    public class AddInApplication : DataBase
+    public class AddInApplication : ExtensibleData
     {
         /// <summary>
         /// Gets or sets the type of the add-in application.

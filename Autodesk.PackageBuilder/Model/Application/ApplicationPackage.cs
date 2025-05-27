@@ -8,7 +8,7 @@
     /// Represents an application package with metadata and components for XML serialization.
     /// </summary>
     [Serializable]
-    public class ApplicationPackage : DataBase, IPackageSerializable
+    public class ApplicationPackage : ExtensibleData, IPackageSerializable
     {
         /// <summary>
         /// Gets or sets the schema version of the application package.

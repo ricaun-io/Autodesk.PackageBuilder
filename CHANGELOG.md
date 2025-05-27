@@ -9,8 +9,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Support custom `Element` and `Attribute`.
 - Add `IncludeSymbols` to support `SymbolPackageFormat`.
 ### PackageBuilder
-- Add `DataBase` with custom `IXmlSerializable`.
-- Add `DataBaseExtension` with `CreateEntryElement` and `CreateAttribute`.
+- Add `ExtensibleData` with custom `IXmlSerializable`.
+- Add `ExtensibleDataExtension` with `CreateEntryElement` and `CreateAttribute`.
 - Add `DataBuilderBase` and `DataBuilderBaseExtension`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`

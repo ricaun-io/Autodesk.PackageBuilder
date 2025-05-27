@@ -5,7 +5,7 @@
     /// <summary>
     /// Represents company information including name, URL, and optional email address.
     /// </summary>
-    public class CompanyDetails : DataBase
+    public class CompanyDetails : ExtensibleData
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="CompanyDetails"/> class.

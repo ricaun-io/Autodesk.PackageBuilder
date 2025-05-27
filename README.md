@@ -241,11 +241,11 @@ var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
 });
 ```
 
-#### Create custom Element
+#### Create custom Element/Attribute
 
-The class `DataBase` could be used to create custom `Element`.
+The class `ExtensibleData` could be used to create custom `Element`.
 ```C#
-public class CustomElement : DataBase
+public class CustomElement : ExtensibleData
 {
     [XmlAttribute]
     public string Name { get; set; }
@@ -254,7 +254,8 @@ public class CustomElement : DataBase
 }
 ```
 
-The `DataBase` uses a `XmlSerializer` to serialize the object.
+The `ExtensibleData` uses a `XmlSerializer` to serialize the object. 
+Use the `DataBuilder` to access the methods `CreateElement` and `CreateAttribute` to create custom elements or attributes.
 
 ```C#
 var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
@@ -265,10 +266,28 @@ var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
         Value = "Value"
     };
 
-    builder.Components
-        .CreateEntry("Revit 2021")
-        .DataBuilder.CreateElement("CustomElement", custom);
+    var componentRevit2021 = builder.Components
+        .CreateEntry("Revit 2021");
+
+    componentRevit2021.DataBuilder.CreateAttribute("Attribute", true);
+    componentRevit2021.DataBuilder.CreateElement("Element", true);
+    componentRevit2021.DataBuilder.CreateElement("CustomElement", custom);
 });
+```
+
+This is the result of the above code:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage>
+    <CompanyDetails />
+    <Components Description="Revit 2021" Attribute="True">
+    <Element>true</Element>
+    <CustomElement Name="Name">
+        <Value>Value</Value>
+    </CustomElement>
+    </Components>
+</ApplicationPackage>
 ```
 
 ## Package Inspiration / Reference
