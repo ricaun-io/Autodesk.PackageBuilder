@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `ExtensibleData` with custom `IXmlSerializable`.
 - Add `ExtensibleDataExtension` with `CreateEntryElement` and `CreateAttribute`.
 - Add `DataBuilderBase` and `DataBuilderBaseExtension`.
+- Add `AutoCADUtils` to support `AutoCADApplication` and `AutoCADPlatform`.
+- Add `AutoCADExtensibleData` to support `LoadOnAppearance` and `Commands`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 
