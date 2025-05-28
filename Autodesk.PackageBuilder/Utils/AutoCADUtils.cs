@@ -30,6 +30,24 @@ public static class AutoCADUtils
     /// Configures the <see cref="ComponentsBuilder"/> for the specified AutoCAD version on Windows 64-bit.
     /// </summary>
     /// <param name="componentsBuilder">The components builder instance.</param>
+    /// <param name="autoCADVersion">The AutoCAD version as a string (e.g., "24.0").</param>
+    /// <returns>The <see cref="ComponentsBuilder"/> instance for chaining.</returns>
+    /// <remarks>
+    /// This overload parses the version string and delegates to the <see cref="AutoCADPlatform(ComponentsBuilder, Version)"/> overload.
+    /// </remarks>
+    public static ComponentsBuilder AutoCADPlatform(this ComponentsBuilder componentsBuilder, string autoCADVersion)
+    {
+        if (Version.TryParse(autoCADVersion, out var version))
+        {
+            return componentsBuilder.AutoCADPlatform(version);
+        }
+        throw new ArgumentException($"Invalid AutoCAD version format: {autoCADVersion}", nameof(autoCADVersion));
+    }
+
+    /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for the specified AutoCAD version on Windows 64-bit.
+    /// </summary>
+    /// <param name="componentsBuilder">The components builder instance.</param>
     /// <param name="autoCADVersion">The AutoCAD version.</param>
     /// <returns>The <see cref="ComponentsBuilder"/> instance for chaining.</returns>
     /// <remarks>
@@ -38,6 +56,27 @@ public static class AutoCADUtils
     public static ComponentsBuilder AutoCADPlatform(this ComponentsBuilder componentsBuilder, Version autoCADVersion)
     {
         return componentsBuilder.AutoCADPlatform(Os, Platform, autoCADVersion);
+    }
+
+    /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for the specified OS, platform, and AutoCAD version.
+    /// </summary>
+    /// <param name="componentsBuilder">The components builder instance.</param>
+    /// <param name="os">The operating system (e.g., "Win64").</param>
+    /// <param name="platform">The platform (e.g., "AutoCAD*").</param>
+    /// <param name="autoCADVersion">The AutoCAD version as a string (e.g., "24.0").</param>
+    /// <returns>The <see cref="ComponentsBuilder"/> instance for chaining.</returns>
+    /// <exception cref="ArgumentException">Thrown if <paramref name="autoCADVersion"/> is not a valid version string.</exception>
+    /// <remarks>
+    /// This overload parses the version string and delegates to the <see cref="AutoCADPlatform(ComponentsBuilder, string, string, Version)"/> overload.
+    /// </remarks>
+    public static ComponentsBuilder AutoCADPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, string autoCADVersion)
+    {
+        if (Version.TryParse(autoCADVersion, out var version))
+        {
+            return componentsBuilder.AutoCADPlatform(os, platform, version);
+        }
+        throw new ArgumentException($"Invalid AutoCAD version format: {autoCADVersion}", nameof(autoCADVersion));
     }
 
     /// <summary>
@@ -61,6 +100,32 @@ public static class AutoCADUtils
     /// Configures the <see cref="ComponentsBuilder"/> for a range of AutoCAD versions on Windows 64-bit.
     /// </summary>
     /// <param name="componentsBuilder">The components builder instance.</param>
+    /// <param name="minVersion">The minimum AutoCAD version as a string (e.g., "24.0").</param>
+    /// <param name="maxVersion">The maximum AutoCAD version as a string (e.g., "25.0").</param>
+    /// <param name="maxVersionMinusOne">
+    /// If true, sets the maximum version to one less than <paramref name="maxVersion"/>.
+    /// </param>
+    /// <returns>The <see cref="ComponentsBuilder"/> instance for chaining.</returns>
+    /// <exception cref="ArgumentException">
+    /// Thrown if <paramref name="minVersion"/> is not a valid version string.
+    /// </exception>
+    /// <remarks>
+    /// This overload parses the version strings and delegates to the <see cref="AutoCADPlatform(ComponentsBuilder, Version, Version, bool)"/> overload.
+    /// </remarks>
+    public static ComponentsBuilder AutoCADPlatform(this ComponentsBuilder componentsBuilder, string minVersion, string maxVersion, bool maxVersionMinusOne = false)
+    {
+        if (Version.TryParse(minVersion, out var version))
+        {
+            Version.TryParse(maxVersion, out var versionMax);
+            return componentsBuilder.AutoCADPlatform(version, versionMax, maxVersionMinusOne);
+        }
+        throw new ArgumentException($"Invalid AutoCAD version format: {minVersion}", nameof(minVersion));
+    }
+
+    /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for a range of AutoCAD versions on Windows 64-bit.
+    /// </summary>
+    /// <param name="componentsBuilder">The components builder instance.</param>
     /// <param name="minVersion">The minimum AutoCAD version.</param>
     /// <param name="maxVersion">The maximum AutoCAD version.</param>
     /// <param name="maxVersionMinusOne">If true, sets the maximum version to one less than <paramref name="maxVersion"/>.</param>
@@ -71,6 +136,34 @@ public static class AutoCADUtils
     public static ComponentsBuilder AutoCADPlatform(this ComponentsBuilder componentsBuilder, Version minVersion, Version maxVersion, bool maxVersionMinusOne = false)
     {
         return componentsBuilder.AutoCADPlatform(Os, Platform, minVersion, maxVersion, maxVersionMinusOne);
+    }
+
+    /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for the specified OS, platform, and AutoCAD version range.
+    /// </summary>
+    /// <param name="componentsBuilder">The components builder instance.</param>
+    /// <param name="os">The operating system (e.g., "Win64").</param>
+    /// <param name="platform">The platform (e.g., "AutoCAD*").</param>
+    /// <param name="minVersion">The minimum AutoCAD version as a string (e.g., "24.0").</param>
+    /// <param name="maxVersion">The maximum AutoCAD version as a string (e.g., "25.0").</param>
+    /// <param name="maxVersionMinusOne">
+    /// If true, sets the maximum version to one less than <paramref name="maxVersion"/>.
+    /// </param>
+    /// <returns>The <see cref="ComponentsBuilder"/> instance for chaining.</returns>
+    /// <exception cref="ArgumentException">
+    /// Thrown if <paramref name="minVersion"/> is not a valid version string.
+    /// </exception>
+    /// <remarks>
+    /// This overload parses the version strings and delegates to the <see cref="AutoCADPlatform(ComponentsBuilder, string, string, Version, Version, bool)"/> overload.
+    /// </remarks>
+    public static ComponentsBuilder AutoCADPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, string minVersion, string maxVersion, bool maxVersionMinusOne = false)
+    {
+        if (Version.TryParse(minVersion, out var version))
+        {
+            Version.TryParse(maxVersion, out var versionMax);
+            return componentsBuilder.AutoCADPlatform(os, platform, version, versionMax, maxVersionMinusOne);
+        }
+        throw new ArgumentException($"Invalid AutoCAD version format: {minVersion}", nameof(minVersion));
     }
 
     /// <summary>

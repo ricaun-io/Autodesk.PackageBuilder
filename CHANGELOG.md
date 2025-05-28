@@ -14,8 +14,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `DataBuilderBase` and `DataBuilderBaseExtension`.
 - Add `AutoCADUtils` to support `AutoCADApplication` and `AutoCADPlatform`.
 - Add `AutoCADExtensibleData` to support `LoadOnAppearance` and `Commands`.
+- Add `AutoCADCommands` and `AutoCADCommand` in `AutoCADExtensibleData`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
+- Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
 
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features
