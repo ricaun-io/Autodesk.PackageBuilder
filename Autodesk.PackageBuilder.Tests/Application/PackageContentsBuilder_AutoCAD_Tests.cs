@@ -12,7 +12,6 @@ namespace Autodesk.PackageBuilder.Tests.Application
         {
             var builder = BuilderUtils.Build<AutoCADPackageBuilder>();
             var content = builder.ToString();
-            Console.WriteLine(content);
 #if NET6_0
             if (AutoCADPackageBuilder.Expected.Equals(content) == false)
                 Assert.Ignore("Not equal, order not match in version net6.0 for some reason...");

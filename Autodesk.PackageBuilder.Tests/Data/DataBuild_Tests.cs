@@ -1,6 +1,7 @@
 ﻿using Autodesk.PackageBuilder.Model.Application;
 using Autodesk.PackageBuilder.Tests.Utils;
 using NUnit.Framework;
+using System;
 using System.Xml.Serialization;
 
 namespace Autodesk.PackageBuilder.Tests.Data
@@ -21,7 +22,7 @@ namespace Autodesk.PackageBuilder.Tests.Data
             var applicationPackageBuilder = builder.ApplicationPackage.Create();
             applicationPackageBuilder.DataBuilder.CreateAttribute(name, value);
 
-            System.Console.WriteLine(builder.ToString());
+            // Console.WriteLine(builder.ToString());
 
             builder.AssertAttribute(name, value);
         }
@@ -33,7 +34,7 @@ namespace Autodesk.PackageBuilder.Tests.Data
             var applicationPackageBuilder = builder.ApplicationPackage.Create();
             applicationPackageBuilder.DataBuilder.CreateElement(name, value);
 
-            System.Console.WriteLine(builder.ToString());
+            // Console.WriteLine(builder.ToString());
 
             builder.AssertElement(name, value);
         }
@@ -50,7 +51,7 @@ namespace Autodesk.PackageBuilder.Tests.Data
                 componentsBuilder.DataBuilder.CreateAttribute<ComponentEntry>("Attribute", i);
 
             }
-            System.Console.WriteLine(builder.ToString());
+            // Console.WriteLine(builder.ToString());
 
             for (int i = 0; i < length; i++)
             {
@@ -79,7 +80,7 @@ namespace Autodesk.PackageBuilder.Tests.Data
             });
 
             var result = builder.ToString();
-            System.Console.WriteLine(result);
+            // Console.WriteLine(result);
 
             Assert.AreEqual(Expected, result, $"Expected: {Expected}\nContent: {result}");
         }
