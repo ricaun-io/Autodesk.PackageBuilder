@@ -126,7 +126,7 @@ namespace Autodesk.PackageBuilder.Tests.Application
                     .AppName("AutoCADAddin")
                     .ModuleName(@"./Contents/2025/AutoCADAddin.dll")
                     .LoadOnAppearance()
-                    .Commands(commends.Skip(1));
+                    .Commands(commends.LastOrDefault());
 
             }
         }

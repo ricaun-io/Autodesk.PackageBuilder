@@ -35,7 +35,7 @@ public static partial class AutoCADExtensibleData
     /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
     /// <param name="globalLocalCommands">An array of command names to add as both global and local commands.</param>
     /// <returns>The current <see cref="ComponentsBuilder"/> instance for further configuration.</returns>
-    public static ComponentsBuilder Commands(this ComponentsBuilder componentsBuilder, params IEnumerable<string> globalLocalCommands)
+    public static ComponentsBuilder Commands(this ComponentsBuilder componentsBuilder, params string[] globalLocalCommands)
     {
         return componentsBuilder.CommandGroups(string.Empty, globalLocalCommands);
     }
@@ -47,7 +47,7 @@ public static partial class AutoCADExtensibleData
     /// <param name="groupName">The group name for the commands, or an empty string for no group.</param>
     /// <param name="globalLocalCommands">An array of command names to add as both global and local commands.</param>
     /// <returns>The current <see cref="ComponentsBuilder"/> instance for further configuration.</returns>
-    public static ComponentsBuilder CommandGroups(this ComponentsBuilder componentsBuilder, string groupName, params IEnumerable<string> globalLocalCommands)
+    public static ComponentsBuilder CommandGroups(this ComponentsBuilder componentsBuilder, string groupName, params string[] globalLocalCommands)
     {
         if (globalLocalCommands is null)
             return componentsBuilder;
