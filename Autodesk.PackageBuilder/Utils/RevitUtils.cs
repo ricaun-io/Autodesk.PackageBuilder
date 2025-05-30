@@ -5,8 +5,14 @@
 /// </summary>
 public static class RevitUtils
 {
-    private const string Os = "Win64";
-    private const string Platform = "Revit";
+    /// <summary>
+    /// The default operating system value for Revit components ("Win64").
+    /// </summary>
+    public const string Os = "Win64";
+    /// <summary>
+    /// The default platform value for Revit components ("Revit").
+    /// </summary>
+    public const string Platform = "Revit";
 
     /// <summary>
     /// Configures the <see cref="ApplicationPackageBuilder"/> for Autodesk Revit as an application product type.

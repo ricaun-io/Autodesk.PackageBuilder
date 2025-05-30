@@ -11,8 +11,14 @@ namespace Autodesk.PackageBuilder;
 /// </remarks>
 public static class AutoCADUtils
 {
-    private const string Os = "Win64";
-    private const string Platform = "AutoCAD*"; // AutoCAD* - All AutoCAD-based products 
+    /// <summary>
+    /// The default operating system for AutoCAD application packages (Windows 64-bit).
+    /// </summary>
+    public const string Os = "Win64";
+    /// <summary>
+    /// The default platform string for all AutoCAD-based products ("AutoCAD*").
+    /// </summary>
+    public const string Platform = "AutoCAD*"; // AutoCAD* - All AutoCAD-based products 
 
     /// <summary>
     /// Configures the <see cref="ApplicationPackageBuilder"/> for an AutoCAD application package.
