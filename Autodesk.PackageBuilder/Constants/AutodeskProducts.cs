@@ -16,6 +16,11 @@
         public const string AutoCAD = "AutoCAD";
 
         /// <summary>
+        /// The product name for Autodesk Inventor.
+        /// </summary>
+        public const string Inventor = "Inventor";
+
+        /// <summary>
         /// The product name for Autodesk Maya.
         /// </summary>
         public const string Maya = "Maya";

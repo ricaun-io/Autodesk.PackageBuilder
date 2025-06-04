@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [1.1.0] / 2025-05-16
 ### Features
+- Support `AutoCAD` bundle.
+- Support `Inventor` bundle.
 - Support custom `Element` and `Attribute`.
 - Add `IncludeSymbols` to support `SymbolPackageFormat`.
 ### PackageBuilder
@@ -15,6 +17,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `AutoCADUtils` to support `AutoCADApplication` and `AutoCADPlatform`.
 - Add `AutoCADExtensibleData` to support `LoadOnAppearance` and `Commands`.
 - Add `AutoCADCommands` and `AutoCADCommand` in `AutoCADExtensibleData`.
+- Add `InventorUtils` to support `InventorApplication` and `InventorPlatform`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
