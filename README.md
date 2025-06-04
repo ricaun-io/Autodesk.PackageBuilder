@@ -9,8 +9,10 @@ This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.
 [![Maya](https://img.shields.io/badge/Maya-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Inventor](https://img.shields.io/badge/Inventor-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Navisworks](https://img.shields.io/badge/Navisworks-186BFF.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+<!-- 
 [![Vault](https://img.shields.io/badge/Vault-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Fusion 360](https://img.shields.io/badge/Fusion%20360-FF6B00.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+-->
 
 [![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
