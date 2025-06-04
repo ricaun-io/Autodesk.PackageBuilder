@@ -3,13 +3,32 @@
 This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin` using C# fluent API.
 
 [![Autodesk](https://img.shields.io/badge/Autodesk-black?logo=autodesk&logoColor=white)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
-[![Revit](https://img.shields.io/badge/Revit-black.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![AutoCAD](https://img.shields.io/badge/AutoCAD-E51050.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Revit](https://img.shields.io/badge/Revit-186BFF.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![3ds Max](https://img.shields.io/badge/3ds%20Max-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Maya](https://img.shields.io/badge/Maya-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Inventor](https://img.shields.io/badge/Inventor-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 
 [![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 [![Release](https://img.shields.io/nuget/v/Autodesk.PackageBuilder?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/Autodesk.PackageBuilder)
+
+## Autodesk Product Version Table
+
+| Product      | RuntimeRequirements::SeriesMin/SeriesMax | RuntimeRequirements::Platform         |
+|--------------|------------------------------------------|--------------------------------------|
+| AutoCAD      | R24.0 (2021), R23.1 (2020), R23.0 (2019) | AutoCAD*                             |
+| Revit        | R2021, R2020, R2019, R2018, R2017        | Revit                                |
+| Maya         | 2020, 2019, 2018, ...                    | Maya                                 |
+| 3ds Max      | 2021, 2020, 2019, 2018, ...              | 3ds Max&#124;3ds Max Design          |
+| Inventor     | (version is taken from add-in manifest)  | Inventor                             |
+| Navisworks   | Nw18 (2021), Nw17 (2020), Nw16 (2019)    | NAVMAN&#124;NAVSIM                   |
+| Vault        | V2020, V2019, ...                        | Vault                                |
+| Fusion 360   | (No version, leave empty)                | Fusion 360                           |
+
+* [AppBundle: Autodesk Products - 2020](https://www.autodesk.com/autodesk-university/class/AppBundle-Cross-Distribution-Autodesk-Products-App-Store-and-Forge-2020)
 
 ## Examples
 

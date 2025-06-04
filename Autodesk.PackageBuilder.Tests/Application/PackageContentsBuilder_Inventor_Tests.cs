@@ -23,11 +23,11 @@ namespace Autodesk.PackageBuilder.Tests.Application
                 <ApplicationPackage SchemaVersion="1.0" AutodeskProduct="Inventor" Name="InventorAddin" AppVersion="1.0.0" ProductType="Application">
                   <CompanyDetails Name="Company Name" Url="url" Email="email" />
                   <Components Description="Inventor 2024">
-                    <RuntimeRequirements OS="Win64" Platform="Inventor" />
+                    <RuntimeRequirements OS="Win64" Platform="Inventor" SeriesMin="Ir25" SeriesMax="Ir28" />
                     <ComponentEntry AppName="InventorAddin" ModuleName="./Contents/2024/InventorAddin.addin" />
                   </Components>
                   <Components Description="Inventor 2025">
-                    <RuntimeRequirements OS="Win64" Platform="Inventor" />
+                    <RuntimeRequirements OS="Win64" Platform="Inventor" SeriesMin="Ir29" />
                     <ComponentEntry AppName="InventorAddin" ModuleName="./Contents/2025/InventorAddin.addin" />
                   </Components>
                 </ApplicationPackage>
@@ -47,13 +47,13 @@ namespace Autodesk.PackageBuilder.Tests.Application
 
                 Components
                     .CreateEntry("Inventor 2024")
-                    .InventorPlatform()
+                    .InventorPlatform(25, 29, true)
                     .AppName("InventorAddin")
                     .ModuleName(@"./Contents/2024/InventorAddin.addin");
 
                 Components
                     .CreateEntry("Inventor 2025")
-                    .InventorPlatform()
+                    .InventorPlatform(29, 0)
                     .AppName("InventorAddin")
                     .ModuleName(@"./Contents/2025/InventorAddin.addin");
             }

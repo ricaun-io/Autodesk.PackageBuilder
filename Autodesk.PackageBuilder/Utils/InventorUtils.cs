@@ -65,6 +65,87 @@ public static class InventorUtils
             .Platform(platform);
     }
 
+    ///<summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for the default Inventor platform and operating system,
+    /// and restricts the supported internal Inventor version range using integer major versions.
+    /// </summary>
+    /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
+    /// <param name="minInternalVersion">The minimum supported internal Inventor version as an integer (e.g., 25 for Inventor 2021).</param>
+    /// <param name="maxInternalVersion">The maximum supported internal Inventor version as an integer.</param>
+    /// <param name="maxVersionMinusOne">
+    /// If <c>true</c>, the maximum version is treated as inclusive (i.e., less than or equal to <paramref name="maxInternalVersion"/>).
+    /// If <c>false</c> (default), the maximum version is exclusive (i.e., less than <paramref name="maxInternalVersion"/> minus one).
+    /// </param>
+    /// <returns>
+    /// The <see cref="ComponentsBuilder"/> instance for chaining, configured for Inventor's default OS, platform, and version range.
+    /// </returns>
+    public static ComponentsBuilder InventorPlatform(this ComponentsBuilder componentsBuilder, int minInternalVersion, int maxInternalVersion, bool maxVersionMinusOne = false)
+    {
+        return componentsBuilder.InventorPlatform(new Version(minInternalVersion, 0), new Version(maxInternalVersion, 0), maxVersionMinusOne);
+    }
+
+    /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for the default Inventor platform and operating system,
+    /// and restricts the supported internal Inventor version range.
+    /// </summary>
+    /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
+    /// <param name="minVersion">The minimum supported internal Inventor version as a <see cref="Version"/> (e.g., 25 for Inventor 2021).</param>
+    /// <param name="maxVersion">The maximum supported internal Inventor version as a <see cref="Version"/>.</param>
+    /// <param name="maxVersionMinusOne">
+    /// If <c>true</c>, the maximum version is treated as inclusive (i.e., less than or equal to <paramref name="maxVersion"/>).
+    /// If <c>false</c> (default), the maximum version is exclusive (i.e., less than <paramref name="maxVersion"/> minus one).
+    /// </param>
+    /// <returns>
+    /// The <see cref="ComponentsBuilder"/> instance for chaining, configured for Inventor's default OS, platform, and version range.
+    /// </returns>
+    public static ComponentsBuilder InventorPlatform(this ComponentsBuilder componentsBuilder, Version minVersion, Version maxVersion, bool maxVersionMinusOne = false)
+    {
+        return componentsBuilder.InventorPlatform(Os, Platform, minVersion, maxVersion, maxVersionMinusOne);
+    }
+
+    /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for a specified operating system, platform, and Inventor version range.
+    /// </summary>
+    /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
+    /// <param name="os">The operating system to set (e.g., "Win64").</param>
+    /// <param name="platform">The platform to set (e.g., "Inventor").</param>
+    /// <param name="minVersion">The minimum supported internal Inventor version as a <see cref="Version"/> (e.g., 25 for Inventor 2021).</param>
+    /// <param name="maxVersion">The maximum supported internal Inventor version as a <see cref="Version"/>. If <c>null</c> or major is 0, no upper bound is set.</param>
+    /// <param name="maxVersionMinusOne">
+    /// If <c>true</c>, the maximum version is treated as inclusive (i.e., less than or equal to <paramref name="maxVersion"/>).
+    /// If <c>false</c> (default), the maximum version is exclusive (i.e., less than <paramref name="maxVersion"/> minus one).
+    /// </param>
+    /// <returns>
+    /// The <see cref="ComponentsBuilder"/> instance for chaining, configured for the specified OS, platform, and version range.
+    /// </returns>
+    public static ComponentsBuilder InventorPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, Version minVersion, Version maxVersion, bool maxVersionMinusOne = false)
+    {
+        var minVersionString = minVersion.ToIrMajorString();
+        var maxVersionString = maxVersion?.ToIrMajorString();
+
+        componentsBuilder
+            .OS(os)
+            .Platform(platform)
+            .SeriesMin(minVersionString);
+
+        if (minVersionString == maxVersionString)
+        {
+            return componentsBuilder
+                .SeriesMax(maxVersionString);
+        }
+
+        if (maxVersion is null || maxVersion.Major == 0)
+            return componentsBuilder;
+
+        if (maxVersionMinusOne)
+        {
+            maxVersionString = maxVersion.ToIrMajorString(-1);
+        }
+
+        return componentsBuilder
+            .SeriesMax(maxVersionString);
+    }
+
     /// <summary>
     /// Configures the supported Inventor software version for the add-in entry builder using an integer major version.
     /// </summary>
@@ -170,5 +251,13 @@ public static class InventorUtils
             return null;
 
         return $"{version.Major + majorPlus}..";
+    }
+
+    private static string ToIrMajorString(this Version version, int majorPlus = 0)
+    {
+        if (version is null)
+            return null;
+
+        return $"Ir{version.Major + majorPlus}";
     }
 }

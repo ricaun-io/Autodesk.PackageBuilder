@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `IInventorAddInEntryBuilder`, `InventorAddInEntryBuilder` and `InventorAddIn`.
 - Update `InventorUtils` to have `SupportedSoftwareVersion` extension method.
 - Add `Max3dsUtils` to support `Max3dsApplication` and `Max3dsPlatform`.
+- Update `InventorUtils` to use `SeriesMin/SeriesMax` for `App Store` only.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
