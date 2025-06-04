@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `AutoCADExtensibleData` to support `LoadOnAppearance` and `Commands`.
 - Add `AutoCADCommands` and `AutoCADCommand` in `AutoCADExtensibleData`.
 - Add `InventorUtils` to support `InventorApplication` and `InventorPlatform`.
+- Rename `AddInEntryBuilder` to `RevitAddInEntryBuilder`.
+- Add `IInventorAddInEntryBuilder`, `InventorAddInEntryBuilder` and `InventorAddIn`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.

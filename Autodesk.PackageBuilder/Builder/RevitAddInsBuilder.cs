@@ -19,12 +19,12 @@
         /// <summary>
         /// The builder for configuring individual add-in entries.
         /// </summary>
-        private readonly AddInEntryBuilder _addInEntryBuilder;
+        private readonly RevitAddInEntryBuilder _addInEntryBuilder;
 
         /// <summary>
         /// Gets the builder for creating and configuring add-in entries.
         /// </summary>
-        public IAddInEntryBuilder AddIn => _addInEntryBuilder;
+        public IRevitAddInEntryBuilder AddIn => _addInEntryBuilder;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RevitAddInsBuilder"/> class.
@@ -33,7 +33,7 @@
         {
             revitAddIns = new RevitAddIns();
             _revitAddInsEntryBuilder = new RevitAddInsEntryBuilder(revitAddIns);
-            _addInEntryBuilder = new AddInEntryBuilder(revitAddIns.AddIn);
+            _addInEntryBuilder = new RevitAddInEntryBuilder(revitAddIns.AddIn);
         }
 
         /// <summary>

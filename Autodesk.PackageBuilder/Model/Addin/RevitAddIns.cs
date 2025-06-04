@@ -14,6 +14,6 @@
         /// Gets or sets the list of Revit add-in models.
         /// </summary>
         [XmlElement]
-        public List<AddInModel> AddIn { get; set; } = new List<AddInModel>();
+        public List<RevitAddInData> AddIn { get; set; } = new List<RevitAddInData>();
     }
 }
