@@ -1,13 +1,11 @@
 # Autodesk.PackageBuilder
 
-This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin/InventorAddin.addin` using C# fluent API.
-
 [![Autodesk](https://img.shields.io/badge/Autodesk-black?logo=autodesk&logoColor=white)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![AutoCAD](https://img.shields.io/badge/AutoCAD-E51050.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Revit](https://img.shields.io/badge/Revit-186BFF.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![3ds Max](https://img.shields.io/badge/3ds%20Max-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
-[![Maya](https://img.shields.io/badge/Maya-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Inventor](https://img.shields.io/badge/Inventor-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Maya](https://img.shields.io/badge/Maya-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Navisworks](https://img.shields.io/badge/Navisworks-186BFF.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 <!-- 
 [![Vault](https://img.shields.io/badge/Vault-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
@@ -19,6 +17,8 @@ This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 [![Release](https://img.shields.io/nuget/v/Autodesk.PackageBuilder?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/Autodesk.PackageBuilder)
+
+This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin/InventorAddin.addin` using C# fluent API.
 
 ## Autodesk Product Version Table
 
