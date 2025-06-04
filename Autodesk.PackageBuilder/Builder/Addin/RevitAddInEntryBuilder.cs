@@ -76,14 +76,5 @@
         /// <param name="value">The vendor description value to set.</param>
         /// <returns>The current <see cref="RevitAddInEntryBuilder"/> instance for method chaining.</returns>
         public RevitAddInEntryBuilder VendorDescription(string value) => SetPropertyValue(value);
-
-        /// <summary>
-        /// (Obsolete) Sets the AllowLoadingIntoExistingSession property for the current entry.
-        /// This method is obsolete and will be removed in a future version.
-        /// </summary>
-        /// <param name="value">A value indicating whether loading into an existing session is allowed.</param>
-        /// <returns>The current <see cref="RevitAddInEntryBuilder"/> instance for method chaining.</returns>
-        [System.Obsolete("This method does not have a Property 'AllowLoadingIntoExistingSession' in class AddInModel, will be removed in a future version.")]
-        internal RevitAddInEntryBuilder AllowLoadingIntoExistingSession(bool value) => SetPropertyValue(value);
     }
 }
