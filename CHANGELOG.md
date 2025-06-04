@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [1.1.0] / 2025-05-16
 ### Features
 - Support `AutoCAD` bundle.
-- Support `Inventor` bundle.
+- Support `Inventor` bundle and add-in.
 - Support custom `Element` and `Attribute`.
 - Add `IncludeSymbols` to support `SymbolPackageFormat`.
 ### PackageBuilder
