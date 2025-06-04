@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Support `Inventor` bundle and add-in.
 - Support `3ds Max` bundle.
 - Support `Maya` bundle.
+- Support `Maya` bundle.
 - Support custom `Element` and `Attribute`.
 - Add `IncludeSymbols` to support `SymbolPackageFormat`.
 ### PackageBuilder
@@ -25,12 +26,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `InventorUtils` to have `SupportedSoftwareVersion` extension method.
 - Add `Max3dsUtils` to support `Max3dsApplication` and `Max3dsPlatform`.
 - Update `InventorUtils` to use `SeriesMin/SeriesMax` for `App Store` only.
+- Add `MayaUtils` to support `MayaApplication` and `MayaPlatform`.
+- Add `NavisworksUtils` to support `NavisworksApplication` and `NavisworksPlatform`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
 - Add `InventorAddInsBuilder_Tests` to test `InventorAddInEntryBuilder`.
 - Add `PackageContentsBuilder_Inventor_Tests` to test `InventorUtils`.
 - Add `PackageContentsBuilder_Max3ds_Tests` to test `Max3dsUtils`.
+- Add `PackageContentsBuilder_Maya_Tests` to test `MayaUtils`.
+- Add `PackageContentsBuilder_Navisworks_Tests` to test `NavisworksUtils`.
 
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features
