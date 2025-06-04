@@ -34,17 +34,31 @@ public static class Max3dsUtils
     }
 
     /// <summary>
+    /// Configures the <see cref="ComponentsBuilder"/> for the default 3ds Max platform and operating system,
+    /// targeting a specific 3ds Max version.
+    /// </summary>
+    /// <param name="componentsBuilder">The components builder instance.</param>
+    /// <param name="version">The 3ds Max version to target.</param>
+    /// <returns>
+    /// The <see cref="ComponentsBuilder"/> instance for chaining, configured for the specified 3ds Max version.
+    /// </returns>
+    public static ComponentsBuilder Max3dsPlatform(this ComponentsBuilder componentsBuilder, int version)
+    {
+        return componentsBuilder.Max3dsPlatform(version, version);
+    }
+
+    /// <summary>
     /// Configures the <see cref="ComponentsBuilder"/> for the default 3ds Max platform and operating system.
     /// </summary>
     /// <param name="componentsBuilder">The components builder instance.</param>
-    /// <param name="max3dsMinVersion">The minimum supported 3ds Max version. If less than or equal to 0, the minimum version is not set.</param>
-    /// <param name="max3dsMaxVersion">The maximum supported 3ds Max version. If less than or equal to 0, the maximum version is not set.</param>
+    /// <param name="minVersion">The minimum supported 3ds Max version. If less than or equal to 0, the minimum version is not set.</param>
+    /// <param name="maxVersion">The maximum supported 3ds Max version. If less than or equal to 0, the maximum version is not set.</param>
     /// <returns>
     /// The <see cref="ComponentsBuilder"/> instance for chaining, configured for 3ds Max's default OS and platform.
     /// </returns>
-    public static ComponentsBuilder Max3dsPlatform(this ComponentsBuilder componentsBuilder, int max3dsMinVersion, int max3dsMaxVersion)
+    public static ComponentsBuilder Max3dsPlatform(this ComponentsBuilder componentsBuilder, int minVersion, int maxVersion)
     {
-        return componentsBuilder.Max3dsPlatform(max3dsMinVersion, max3dsMaxVersion);
+        return componentsBuilder.Max3dsPlatform(Os, Platform, minVersion, maxVersion);
     }
 
     /// <summary>
@@ -53,23 +67,23 @@ public static class Max3dsUtils
     /// <param name="componentsBuilder">The components builder instance.</param>
     /// <param name="os">The operating system to set (e.g., "Win64").</param>
     /// <param name="platform">The platform to set (e.g., "3ds Max").</param>
-    /// <param name="max3dsMinVersion">The minimum supported 3ds Max version. If less than or equal to 0, the minimum version is not set.</param>
-    /// <param name="max3dsMaxVersion">The maximum supported 3ds Max version. If less than or equal to 0, the maximum version is not set.</param>
+    /// <param name="minVersion">The minimum supported 3ds Max version. If less than or equal to 0, the minimum version is not set.</param>
+    /// <param name="maxVersion">The maximum supported 3ds Max version. If less than or equal to 0, the maximum version is not set.</param>
     /// <returns>
     /// The <see cref="ComponentsBuilder"/> instance for chaining, configured for the specified OS, platform, and version range.
     /// </returns>
-    public static ComponentsBuilder Max3dsPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, int max3dsMinVersion, int max3dsMaxVersion)
+    public static ComponentsBuilder Max3dsPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, int minVersion, int maxVersion)
     {
         componentsBuilder.OS(os)
             .Platform(platform);
 
-        if (max3dsMinVersion > 0)
+        if (minVersion > 0)
         {
-            componentsBuilder.SeriesMin(max3dsMinVersion.ToString());
+            componentsBuilder.SeriesMin(minVersion.ToString());
         }
-        if (max3dsMaxVersion > 0)
+        if (maxVersion > 0)
         {
-            componentsBuilder.SeriesMax(max3dsMaxVersion.ToString());
+            componentsBuilder.SeriesMax(maxVersion.ToString());
         }
 
         return componentsBuilder;

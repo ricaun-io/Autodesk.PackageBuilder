@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Features
 - Support `AutoCAD` bundle.
 - Support `Inventor` bundle and add-in.
+- Support `3ds Max` bundle.
 - Support custom `Element` and `Attribute`.
 - Add `IncludeSymbols` to support `SymbolPackageFormat`.
 ### PackageBuilder
@@ -26,6 +27,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
 - Add `InventorAddInsBuilder_Tests` to test `InventorAddInEntryBuilder`.
+- Add `PackageContentsBuilder_Inventor_Tests` to test `InventorUtils`.
+- Add `PackageContentsBuilder_Max3ds_Tests` to test `Max3dsUtils`.
 
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features

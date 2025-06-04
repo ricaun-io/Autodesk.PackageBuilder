@@ -36,10 +36,9 @@ namespace Autodesk.PackageBuilder.Tests.Application
             {
                 ApplicationPackage
                     .Create()
-                    .AutodeskProduct(AutodeskProducts.Revit)
+                    .RevitApplication()
                     .Name("RevitAddin")
-                    .AppVersion("1.0.0")
-                    .ProductType(ProductTypes.Application);
+                    .AppVersion("1.0.0");
 
                 CompanyDetails
                     .Create("Company Name")

@@ -34,13 +34,13 @@ public static class RevitUtils
     /// Configures the <see cref="ComponentsBuilder"/> for the specified Revit version, using "Win64" as the OS and "Revit" as the platform.
     /// </summary>
     /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
-    /// <param name="revitVersion">The Revit version (e.g., 2024).</param>
+    /// <param name="version">The Revit version (e.g., 2024).</param>
     /// <returns>
     /// The configured <see cref="ComponentsBuilder"/> instance with the specified Revit version, "Win64" OS, and "Revit" platform.
     /// </returns>
-    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, int revitVersion)
+    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, int version)
     {
-        return componentsBuilder.RevitPlatform(revitVersion, revitVersion);
+        return componentsBuilder.RevitPlatform(version, version);
     }
 
     /// <summary>
@@ -48,15 +48,15 @@ public static class RevitUtils
     /// using "Win64" as the OS and "Revit" as the platform.
     /// </summary>
     /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
-    /// <param name="minRevitVersion">The minimum Revit version (e.g., 2023).</param>
-    /// <param name="maxRevitVersion">The maximum Revit version (e.g., 2024).</param>
+    /// <param name="minVersion">The minimum Revit version (e.g., 2023).</param>
+    /// <param name="maxVersion">The maximum Revit version (e.g., 2024).</param>
     /// <returns>
     /// The configured <see cref="ComponentsBuilder"/> instance with the specified minimum and maximum Revit versions,
     /// "Win64" OS, and "Revit" platform.
     /// </returns>
-    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, int minRevitVersion, int maxRevitVersion)
+    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, int minVersion, int maxVersion)
     {
-        return componentsBuilder.RevitPlatform(Os, Platform, minRevitVersion, maxRevitVersion);
+        return componentsBuilder.RevitPlatform(Os, Platform, minVersion, maxVersion);
     }
 
     /// <summary>
@@ -65,13 +65,13 @@ public static class RevitUtils
     /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
     /// <param name="os">The operating system (e.g., "Win64").</param>
     /// <param name="platform">The platform (e.g., "Revit").</param>
-    /// <param name="revitVersion">The Revit version (e.g., 2024).</param>
+    /// <param name="version">The Revit version (e.g., 2024).</param>
     /// <returns>
     /// The configured <see cref="ComponentsBuilder"/> instance with the specified OS, platform, and Revit version.
     /// /// </returns>
-    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, int revitVersion)
+    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, int version)
     {
-        return componentsBuilder.RevitPlatform(os, platform, revitVersion, revitVersion);
+        return componentsBuilder.RevitPlatform(os, platform, version, version);
     }
 
     /// <summary>
@@ -80,23 +80,23 @@ public static class RevitUtils
     /// <param name="componentsBuilder">The <see cref="ComponentsBuilder"/> instance to configure.</param>
     /// <param name="os">The operating system requirement (e.g., "Win64").</param>
     /// <param name="platform">The platform requirement (e.g., "Revit").</param>
-    /// <param name="minRevitVersion">The minimum supported Revit version (e.g., 2023).</param>
-    /// <param name="maxRevitVersion">The maximum supported Revit version (e.g., 2024).</param>
+    /// <param name="minVersion">The minimum supported Revit version (e.g., 2023).</param>
+    /// <param name="maxVersion">The maximum supported Revit version (e.g., 2024).</param>
     /// <returns>
     /// The configured <see cref="ComponentsBuilder"/> instance with the specified OS, platform, and Revit version range.
     /// </returns>
-    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, int minRevitVersion, int maxRevitVersion)
+    public static ComponentsBuilder RevitPlatform(this ComponentsBuilder componentsBuilder, string os, string platform, int minVersion, int maxVersion)
     {
         componentsBuilder.OS(os)
             .Platform(platform);
 
-        if (minRevitVersion > 0)
+        if (minVersion > 0)
         {
-            componentsBuilder.SeriesMin("R" + minRevitVersion.ToString());
+            componentsBuilder.SeriesMin("R" + minVersion.ToString());
         }
-        if (maxRevitVersion > 0)
+        if (maxVersion > 0)
         {
-            componentsBuilder.SeriesMax("R" + maxRevitVersion.ToString());
+            componentsBuilder.SeriesMax("R" + maxVersion.ToString());
         }
 
         return componentsBuilder;
