@@ -21,14 +21,14 @@ namespace Autodesk.PackageBuilder.Tests.Addin
 
         [TestCase("Standard")]
         [TestCase("NotStandard")]
-        public void Build_CreateEntry(string type)
+        public void Build_Create(string type)
         {
             builder.AddIn.Create(type);
             builder.AssertElementAttribute("AddIn", "Type", type);
         }
 
         [Test]
-        public void Build_CreateEntry_Empty()
+        public void Build_Create_Empty()
         {
             string type = "Standard";
             builder.AddIn.Create();
@@ -37,7 +37,7 @@ namespace Autodesk.PackageBuilder.Tests.Addin
 
         [TestCase("Value")]
         [TestCase("PropertyValue")]
-        public void Build_CreateEntry_AddInId(string value)
+        public void Build_Create_AddInId(string value)
         {
             builder.AddIn.Create()
                 .ClassId(value)
@@ -60,7 +60,7 @@ namespace Autodesk.PackageBuilder.Tests.Addin
 
         [TestCase("Value", 0)]
         [TestCase("PropertyValue", 1)]
-        public void Build_CreateEntry_AddInId_Load(string value, int i)
+        public void Build_Create_AddInId_Load(string value, int i)
         {
             builder.AddIn.Create()
                 .ClassId(value)
@@ -83,6 +83,45 @@ namespace Autodesk.PackageBuilder.Tests.Addin
             builder.AssertElement("LoadBehavior", i);
             builder.AssertElement("UserUnloadable", i);
             builder.AssertElement("Hidden", i);
+        }
+
+        [TestCase(28, "28..")]
+        [TestCase(29, "29..")]
+        public void Build_Create_AddInId_SupportedSoftwareVersionEqualTo(int version, string expected)
+        {
+            builder.AddIn.Create()
+                .SupportedSoftwareVersion(version);
+
+            builder.AssertElement("SupportedSoftwareVersionEqualTo", expected);
+            builder.AssertNotElement("SupportedSoftwareVersionGreaterThan");
+            builder.AssertNotElement("SupportedSoftwareVersionLessThan");
+        }
+
+        [TestCase(25, "24..")] // Inventor 2021+
+        [TestCase(28, "27..")] // Inventor 2024+
+        [TestCase(29, "28..")] // Inventor 2025+
+        public void Build_Create_AddInId_SupportedSoftwareVersionGreaterThan(int version, string expected)
+        {
+            builder.AddIn.Create()
+                .SupportedSoftwareVersion(version, 0);
+
+            builder.AssertElement("SupportedSoftwareVersionGreaterThan", expected);
+            builder.AssertNotElement("SupportedSoftwareVersionLessThan");
+            builder.AssertNotElement("SupportedSoftwareVersionEqualTo");
+        }
+
+        [TestCase(25, "24..", 28, "29..")] // Inventor 2021+ to 2024-
+        [TestCase(25, "24..", 28, "28..", true)] // Inventor 2021+ to 2024- (not include 2024)
+        [TestCase(29, "28..", 30, "31..")] // Inventor 2025+ to 2026-
+        [TestCase(29, "28..", 30, "30..", true)] // Inventor 2025+ to 2026- (not include 2026)
+        public void Build_Create_AddInId_SupportedSoftwareVersionGreaterAndLessThan(int minVersion, string minExpected, int maxVersion, string maxExpected, bool maxVersionMinusOne = false)
+        {
+            builder.AddIn.Create()
+                .SupportedSoftwareVersion(minVersion, maxVersion, maxVersionMinusOne);
+
+            builder.AssertElement("SupportedSoftwareVersionGreaterThan", minExpected);
+            builder.AssertElement("SupportedSoftwareVersionLessThan", maxExpected);
+            builder.AssertNotElement("SupportedSoftwareVersionEqualTo");
         }
 
         [Test]

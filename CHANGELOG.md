@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Add `InventorUtils` to support `InventorApplication` and `InventorPlatform`.
 - Rename `AddInEntryBuilder` to `RevitAddInEntryBuilder`.
 - Add `IInventorAddInEntryBuilder`, `InventorAddInEntryBuilder` and `InventorAddIn`.
+- Update `InventorUtils` to have `SupportedSoftwareVersion` extension method.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
