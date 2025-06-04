@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Support `Inventor` bundle and add-in.
 - Support `3ds Max` bundle.
 - Support `Maya` bundle.
-- Support `Maya` bundle.
+- Support `Navisworks` bundle.
 - Support custom `Element` and `Attribute`.
 - Add `IncludeSymbols` to support `SymbolPackageFormat`.
 ### PackageBuilder
