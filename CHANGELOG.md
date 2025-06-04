@@ -23,6 +23,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
+- Add `InventorAddInsBuilder_Tests` to test `InventorAddInEntryBuilder`.
 
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features

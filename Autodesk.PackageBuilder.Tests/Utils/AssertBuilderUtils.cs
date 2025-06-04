@@ -31,6 +31,18 @@ namespace Autodesk.PackageBuilder.Tests.Utils
         }
 
         /// <summary>
+        /// Asserts that the specified <paramref name="element"/> is not present in the builder's content.
+        /// </summary>
+        /// <param name="builder">The builder instance to check.</param>
+        /// <param name="element">The name of the element to verify absence of.</param>
+        public static void AssertNotElement(this IBuilder builder, string element)
+        {
+            var content = builder.ToString();
+            var elementValue = ElementStart(element);
+            Assert.IsFalse(content.Contains(elementValue), $"The string '{elementValue}' is found in '{content}'");
+        }
+
+        /// <summary>
         /// Assert <paramref name="builder"/> with '<paramref name="attribute"/>="<paramref name="value"/>"'.
         /// </summary>
         /// <param name="builder"></param>
