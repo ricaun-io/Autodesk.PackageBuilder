@@ -21,6 +21,11 @@
         public const string Inventor = "Inventor";
 
         /// <summary>
+        /// The product name for Autodesk 3ds Max.
+        /// </summary>
+        public const string Max3ds = "3ds Max";
+
+        /// <summary>
         /// The product name for Autodesk Maya.
         /// </summary>
         public const string Maya = "Maya";
