@@ -138,8 +138,8 @@ namespace Autodesk.PackageBuilder.Tests.Addin
             public static string Expected => """"
                 <?xml version="1.0" encoding="utf-8"?>
                 <AddIn Type="Standard">
-                  <ClassId>{11111111-2222-3333-4444-555555555555}</ClassId>
-                  <ClientId>{11111111-2222-3333-4444-555555555555}</ClientId>
+                  <ClassId>{11111111-2222-3333-4444-55555555555F}</ClassId>
+                  <ClientId>{11111111-2222-3333-4444-55555555555F}</ClientId>
                   <DisplayName>InventorAddIn</DisplayName>
                   <Description>InventorAddIn</Description>
                   <Assembly>InventorAddIn.dll</Assembly>
@@ -151,7 +151,7 @@ namespace Autodesk.PackageBuilder.Tests.Addin
                 """";
             public DemoAddinBuilder()
             {
-                var classId = new Guid("11111111-2222-3333-4444-555555555555");
+                var classId = new Guid("11111111-2222-3333-4444-55555555555F");
                 AddIn.Create()
                     .ClassId(classId)
                     .ClientId(classId)

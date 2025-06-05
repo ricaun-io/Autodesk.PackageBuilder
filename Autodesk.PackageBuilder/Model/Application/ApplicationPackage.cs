@@ -59,6 +59,24 @@
         public string ProductCode { get; set; }
 
         /// <summary>
+        /// Gets or sets the application namespace associated with the application package.
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="AppNameSpace"/> is used in the 'apps.autodesk.com' to identify the application package for upgrades.
+        /// </remarks>
+        [XmlAttribute]
+        public string AppNameSpace { get; set; }
+
+        /// <summary>
+        /// Gets or sets the upgrade code of the application package.
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="UpgradeCode"/> is used in the 'apps.autodesk.com' to identify the application package for upgrades.
+        /// </remarks>
+        [XmlAttribute]
+        public string UpgradeCode { get; set; }
+
+        /// <summary>
         /// Gets or sets the author of the application package.
         /// </summary>
         [XmlAttribute]

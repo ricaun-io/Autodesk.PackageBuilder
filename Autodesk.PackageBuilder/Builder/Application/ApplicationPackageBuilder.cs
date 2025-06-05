@@ -92,10 +92,33 @@
 
         /// <summary>
         /// Sets the product code of the application package using a <see cref="Guid"/>.
+        /// The GUID will be formatted with uppercase letters and braces, e.g. "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}".
         /// </summary>
         /// <param name="value">The product code as a <see cref="Guid"/>.</param>
         /// <returns>The <see cref="ApplicationPackageBuilder"/> instance for chaining.</returns>
-        public ApplicationPackageBuilder ProductCode(Guid value) => SetPropertyValue(value.ToString());
+        public ApplicationPackageBuilder ProductCode(Guid value) => SetPropertyValue(value.ToStringBraces());
+
+        /// <summary>
+        /// Sets the application namespace associated with the application package.
+        /// </summary>
+        /// <param name="value">The application namespace value.</param>
+        /// <returns>The <see cref="ApplicationPackageBuilder"/> instance for chaining.</returns>
+        public ApplicationPackageBuilder AppNameSpace(string value) => SetPropertyValue(value);
+
+        /// <summary>
+        /// Sets the upgrade code of the application package as a string.
+        /// </summary>
+        /// <param name="value">The upgrade code value.</param>
+        /// <returns>The <see cref="ApplicationPackageBuilder"/> instance for chaining.</returns>
+        public ApplicationPackageBuilder UpgradeCode(string value) => SetPropertyValue(value);
+
+        /// <summary>
+        /// Sets the upgrade code of the application package using a <see cref="Guid"/>.
+        /// The GUID will be formatted with uppercase letters and braces, e.g. "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}".
+        /// </summary>
+        /// <param name="value">The upgrade code as a <see cref="Guid"/>.</param>
+        /// <returns>The <see cref="ApplicationPackageBuilder"/> instance for chaining.</returns>
+        public ApplicationPackageBuilder UpgradeCode(Guid value) => UpgradeCode(value.ToStringBraces());
 
         /// <summary>
         /// Sets the author of the application package.

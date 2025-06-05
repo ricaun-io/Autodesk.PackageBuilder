@@ -28,6 +28,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Update `InventorUtils` to use `SeriesMin/SeriesMax` for `App Store` only.
 - Add `MayaUtils` to support `MayaApplication` and `MayaPlatform`.
 - Add `NavisworksUtils` to support `NavisworksApplication` and `NavisworksPlatform`.
+- Add `AppNameSpace` and `UpgradeCode` to `PackageBuilder`.
+- Update `ProductCode` and `UpgradeCode` to convert `Guid` to `ToStringBraces`.
 ### Tests
 - Add `DataBuild_Tests` to test `DataBuilder`
 - Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.

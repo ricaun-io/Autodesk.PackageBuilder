@@ -87,7 +87,17 @@ namespace Autodesk.PackageBuilder.Tests.Application
             builder.ApplicationPackage.Create()
                 .ProductCode(guid);
 
-            builder.AssertAttribute("ProductCode", guid);
+            builder.AssertAttribute("ProductCode", guid.ToString("B").ToUpperInvariant());
+        }
+
+        [Test]
+        public void Build_ApplicationPackage_Attribute_UpdaterCode()
+        {
+            var guid = Guid.NewGuid();
+            builder.ApplicationPackage.Create()
+                .UpgradeCode(guid);
+
+            builder.AssertAttribute("UpgradeCode", guid.ToString("B").ToUpperInvariant());
         }
 
         [TestCase("Name")]

@@ -28,16 +28,6 @@ public class InventorAddInEntryBuilder : SingleBuilderBase<InventorAddInEntryBui
     }
 
     /// <summary>
-    /// Converts a <see cref="Guid"/> to a string in "B" format and upper case.
-    /// </summary>
-    /// <param name="guid">The <see cref="Guid"/> to convert.</param>
-    /// <returns>The string representation of the GUID in "B" format and upper case.</returns>
-    private string GuidToString(Guid guid)
-    {
-        return guid.ToString("B").ToUpperInvariant();
-    }
-
-    /// <summary>
     /// Sets the type of the add-in and returns the builder instance.
     /// </summary>
     /// <param name="value">The type value to set.</param>
@@ -53,10 +43,11 @@ public class InventorAddInEntryBuilder : SingleBuilderBase<InventorAddInEntryBui
 
     /// <summary>
     /// Sets the COM class ID (GUID) of the add-in and returns the builder instance.
+    /// The GUID will be formatted with uppercase letters and braces, e.g. "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}".
     /// </summary>
     /// <param name="value">The class ID as a <see cref="Guid"/>.</param>
     /// <returns>The current <see cref="InventorAddInEntryBuilder"/> instance.</returns>
-    public InventorAddInEntryBuilder ClassId(Guid value) => ClassId(GuidToString(value));
+    public InventorAddInEntryBuilder ClassId(Guid value) => ClassId(value.ToStringBraces());
 
     /// <summary>
     /// Sets the client ID (GUID) of the add-in and returns the builder instance.
@@ -67,10 +58,11 @@ public class InventorAddInEntryBuilder : SingleBuilderBase<InventorAddInEntryBui
 
     /// <summary>
     /// Sets the client ID (GUID) of the add-in and returns the builder instance.
+    /// The GUID will be formatted with uppercase letters and braces, e.g. "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}".
     /// </summary>
     /// <param name="value">The client ID as a <see cref="Guid"/>.</param>
     /// <returns>The current <see cref="InventorAddInEntryBuilder"/> instance.</returns>
-    public InventorAddInEntryBuilder ClientId(Guid value) => ClientId(GuidToString(value));
+    public InventorAddInEntryBuilder ClientId(Guid value) => ClientId(value.ToStringBraces());
 
     /// <summary>
     /// Sets the display name of the add-in and returns the builder instance.
