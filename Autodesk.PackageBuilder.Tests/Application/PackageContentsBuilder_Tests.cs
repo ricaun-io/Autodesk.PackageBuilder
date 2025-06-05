@@ -70,14 +70,15 @@ namespace Autodesk.PackageBuilder.Tests.Application
             builder.AssertAttribute("OnlineDocumentation", value);
         }
 
-        [Test]
-        public void Build_ApplicationPackage_Attribute_AppVersion()
+        [TestCase("1.2.3")]
+        [TestCase("1.2.3.4")]
+        public void Build_ApplicationPackage_Attribute_AppVersion(string versionString)
         {
-            var version = new Version(1, 2, 3, 4);
+            var version = new Version(versionString);
             builder.ApplicationPackage.Create()
                 .AppVersion(version);
 
-            builder.AssertAttribute("AppVersion", version);
+            builder.AssertAttribute("AppVersion", version.ToString(3));
         }
 
         [Test]

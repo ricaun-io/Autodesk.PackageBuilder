@@ -64,10 +64,11 @@
 
         /// <summary>
         /// Sets the application version using a <see cref="Version"/> object.
+        /// The version is formatted as a string with up to three components (major.minor.build), e.g. "1.2.3".
         /// </summary>
         /// <param name="value">The application version as a <see cref="Version"/>.</param>
         /// <returns>The <see cref="ApplicationPackageBuilder"/> instance for chaining.</returns>
-        public ApplicationPackageBuilder AppVersion(Version value) => SetPropertyValue(value.ToString());
+        public ApplicationPackageBuilder AppVersion(Version value) => SetPropertyValue(value.ToString(3));
 
         /// <summary>
         /// Sets the user-friendly version string for the application package.
