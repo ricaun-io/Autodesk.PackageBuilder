@@ -8,7 +8,7 @@
     /// <typeparam name="TData"></typeparam>
     public abstract class ListBuilderBase<TBuilder, TData> : BuilderBase<TBuilder, TData>
         where TBuilder : class
-        where TData : new()
+        where TData : ExtensibleData, new()
     {
         private List<TData> _entryList;
 

@@ -19,7 +19,7 @@
         }
 
         /// <summary>
-        /// Create a new instance of the <typeparamref name="TBuilder"/> type and <see cref="IBuilder.Build(string)"./>.
+        /// Create a new instance of the <typeparamref name="TBuilder"/> type and <see cref="IBuilder.Build(string)"/>.
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
         /// <param name="path"></param>
@@ -33,7 +33,7 @@
         }
 
         /// <summary>
-        /// Create a new instance of the <typeparamref name="TBuilder"/> type, <paramref name="config"/> the instance, and <see cref="IBuilder.Build(string)"./>.
+        /// Create a new instance of the <typeparamref name="TBuilder"/> type, <paramref name="config"/> the instance, and <see cref="IBuilder.Build(string)"/>.
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
         /// <param name="path"></param>
@@ -46,7 +46,7 @@
         }
 
         /// <summary>
-        /// Create a new instance of the <typeparamref name="TBuilder"/> type, <paramref name="config"/> the instance, and <see cref="IBuilder.Build(string)"./>.
+        /// Create a new instance of the <typeparamref name="TBuilder"/> type, <paramref name="config"/> the instance, and <see cref="IBuilder.Build(string)"/>.
         /// </summary>
         /// <typeparam name="TBuilder"></typeparam>
         /// <param name="config"></param>

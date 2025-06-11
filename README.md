@@ -1,15 +1,39 @@
 # Autodesk.PackageBuilder
 
-This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin` using C# fluent API.
+[![Autodesk](https://img.shields.io/badge/Autodesk-black?logo=autodesk&logoColor=white)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![AutoCAD](https://img.shields.io/badge/AutoCAD-E51050.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Revit](https://img.shields.io/badge/Revit-186BFF.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![3ds Max](https://img.shields.io/badge/3ds%20Max-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Inventor](https://img.shields.io/badge/Inventor-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Maya](https://img.shields.io/badge/Maya-37A5CC.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Navisworks](https://img.shields.io/badge/Navisworks-186BFF.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+<!-- 
+[![Vault](https://img.shields.io/badge/Vault-DBAE03.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+[![Fusion 360](https://img.shields.io/badge/Fusion%20360-FF6B00.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
+-->
 
-[![Autodesk](https://img.shields.io/badge/Autodesk-black?logo=autodesk&logoColor=white)](../..)
-[![Revit](https://img.shields.io/badge/Revit-black.svg)](../..)
-
-[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](../..)
+[![Visual Studio 2022](https://img.shields.io/badge/Visual%20Studio-2022-blue)](https://github.com/ricaun-io/Autodesk.PackageBuilder)
 [![Nuke](https://img.shields.io/badge/Nuke-Build-blue)](https://nuke.build/)
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Build](../../actions/workflows/Build.yml/badge.svg)](../../actions)
+[![Build](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions/workflows/Build.yml/badge.svg)](https://github.com/ricaun-io/Autodesk.PackageBuilder/actions)
 [![Release](https://img.shields.io/nuget/v/Autodesk.PackageBuilder?logo=nuget&label=release&color=blue)](https://www.nuget.org/packages/Autodesk.PackageBuilder)
+
+This package is intended to build Autodesk `PackageContent.xml` and `RevitAddin.addin/InventorAddin.addin` using C# fluent API.
+
+## Autodesk Product Version Table
+
+| Product      | RuntimeRequirements::SeriesMin/SeriesMax | RuntimeRequirements::Platform        |
+|--------------|------------------------------------------|--------------------------------------|
+| AutoCAD      | R24.0 (2021), R23.1 (2020), R23.0 (2019) | AutoCAD*                             |
+| Revit        | R2021, R2020, R2019, R2018, R2017        | Revit                                |
+| Maya         | 2021, 2020, 2019, 2018, ...              | Maya                                 |
+| 3ds Max      | 2021, 2020, 2019, 2018, ...              | 3ds Max&#124;3ds Max Design          |
+| Inventor     | (version is taken from add-in manifest)  | Inventor                             |
+| Navisworks   | Nw18 (2021), Nw17 (2020), Nw16 (2019)    | NAVMAN&#124;NAVSIM                   |
+| Vault        | V2021, V2020, V2019, ...                 | Vault                                |
+| Fusion 360   | (No version, leave empty)                | Fusion 360                           |
+
+* [AppBundle: Autodesk Products - 2020](https://www.autodesk.com/autodesk-university/class/AppBundle-Cross-Distribution-Autodesk-Products-App-Store-and-Forge-2020)
 
 ## Examples
 
@@ -216,14 +240,88 @@ BuilderUtils.Build<DemoAddinBuilder>(builder => {...}, "RevitAddin.addin");
 BuilderUtils.Build<DemoAddinBuilder>(builder => {...}).Build("RevitAddin.addin");
 ```
 
+### Not implemented Attribute and Element
+
+If the `Attribute` or `Element` is not implemented, you can use `DataBuilder` to access the methods `CreateAttribute` and `CreateElement`.
+
+```C#
+var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
+{
+    builder.Components
+        .CreateEntry("Revit 2021")
+        .DataBuilder.CreateAttribute("Attribute", "Value");
+
+    builder.Components
+        .CreateEntry("Revit 2022")
+        .DataBuilder.CreateElement("Element", "Value");
+
+    builder.Components
+        .CreateEntry("Revit 2023")
+        .DataBuilder.CreateAttribute<ComponentEntry>("Attribute", "Value");
+
+    builder.Components
+        .CreateEntry("Revit 2024")
+        .DataBuilder.CreateElement<ComponentEntry>("Element", "Value");
+});
+```
+
+#### Create custom Element/Attribute
+
+The class `ExtensibleData` could be used to create custom `Element`.
+```C#
+public class CustomElement : ExtensibleData
+{
+    [XmlAttribute]
+    public string Name { get; set; }
+    [XmlElement]
+    public string Value { get; set; }
+}
+```
+
+The `ExtensibleData` uses a `XmlSerializer` to serialize the object. 
+Use the `DataBuilder` to access the methods `CreateElement` and `CreateAttribute` to create custom elements or attributes.
+
+```C#
+var builder = BuilderUtils.Build<PackageContentsBuilder>(builder =>
+{
+    var custom = new CustomElement()
+    {
+        Name = "Name",
+        Value = "Value"
+    };
+
+    var componentRevit2021 = builder.Components
+        .CreateEntry("Revit 2021");
+
+    componentRevit2021.DataBuilder.CreateAttribute("Attribute", true);
+    componentRevit2021.DataBuilder.CreateElement("Element", true);
+    componentRevit2021.DataBuilder.CreateElement("CustomElement", custom);
+});
+```
+
+This is the result of the above code:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage>
+    <CompanyDetails />
+    <Components Description="Revit 2021" Attribute="True">
+    <Element>true</Element>
+    <CustomElement Name="Name">
+        <Value>Value</Value>
+    </CustomElement>
+    </Components>
+</ApplicationPackage>
+```
+
 ## Package Inspiration / Reference
 
-This package was inspared by [InnoSetup.ScriptBuilder](https://github.com/ReactiveBIM/InnoSetup.ScriptBuilder) package.
+This package was inspired by [InnoSetup.ScriptBuilder](https://github.com/ReactiveBIM/InnoSetup.ScriptBuilder) package.
 
 ## License
 
-This package is [licensed](LICENSE) under the [MIT Licence](https://en.wikipedia.org/wiki/MIT_License).
+This package is [licensed](LICENSE) under the [MIT License](https://en.wikipedia.org/wiki/MIT_License).
 
 ---
 
-Do you like this package? Please [star this project on GitHub](../../stargazers)!
+Do you like this package? Please [star this project on GitHub](https://github.com/ricaun-io/Autodesk.PackageBuilder/stargazers)!

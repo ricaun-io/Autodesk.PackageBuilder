@@ -70,14 +70,15 @@ namespace Autodesk.PackageBuilder.Tests.Application
             builder.AssertAttribute("OnlineDocumentation", value);
         }
 
-        [Test]
-        public void Build_ApplicationPackage_Attribute_AppVersion()
+        [TestCase("1.2.3")]
+        [TestCase("1.2.3.4")]
+        public void Build_ApplicationPackage_Attribute_AppVersion(string versionString)
         {
-            var version = new Version(1, 2, 3, 4);
+            var version = new Version(versionString);
             builder.ApplicationPackage.Create()
                 .AppVersion(version);
 
-            builder.AssertAttribute("AppVersion", version);
+            builder.AssertAttribute("AppVersion", version.ToString(3));
         }
 
         [Test]
@@ -87,7 +88,17 @@ namespace Autodesk.PackageBuilder.Tests.Application
             builder.ApplicationPackage.Create()
                 .ProductCode(guid);
 
-            builder.AssertAttribute("ProductCode", guid);
+            builder.AssertAttribute("ProductCode", guid.ToString("B").ToUpperInvariant());
+        }
+
+        [Test]
+        public void Build_ApplicationPackage_Attribute_UpdaterCode()
+        {
+            var guid = Guid.NewGuid();
+            builder.ApplicationPackage.Create()
+                .UpgradeCode(guid);
+
+            builder.AssertAttribute("UpgradeCode", guid.ToString("B").ToUpperInvariant());
         }
 
         [TestCase("Name")]
@@ -158,65 +169,6 @@ namespace Autodesk.PackageBuilder.Tests.Application
             builder.AssertAttribute("ModuleName", value);
             builder.AssertAttribute("Version", value);
             builder.AssertAttribute("AppDescription", value);
-        }
-
-        [Test]
-        public void Build_PackageBuilder_DemoClass()
-        {
-            var builder = BuilderUtils.Build<DemoPackageBuilder>();
-            var content = builder.ToString();
-#if NET6_0
-            if (DemoPackageBuilder.Expected.Equals(content) == false)
-                Assert.Ignore("Not equal, order not match in version net6.0 for some reason...");
-#endif
-            Assert.AreEqual(DemoPackageBuilder.Expected, content, $"Expected: {DemoPackageBuilder.Expected}\nContent: {content}");
-        }
-
-        public class DemoPackageBuilder : PackageContentsBuilder
-        {
-            public static string Expected => """"
-                <?xml version="1.0" encoding="utf-8"?>
-                <ApplicationPackage SchemaVersion="1.0" AutodeskProduct="Revit" Name="RevitAddin" AppVersion="1.0.0" ProductType="Application">
-                  <CompanyDetails Name="Company Name" Url="url" Email="email" />
-                  <Components Description="Revit 2021">
-                    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2021" SeriesMax="R2021" />
-                    <ComponentEntry AppName="RevitAddin" ModuleName="./Contents/2021/RevitAddin.addin" />
-                  </Components>
-                  <Components Description="Revit 2022">
-                    <RuntimeRequirements OS="Win64" Platform="Revit" SeriesMin="R2022" SeriesMax="R2022" />
-                    <ComponentEntry AppName="RevitAddin" ModuleName="./Contents/2022/RevitAddin.addin" />
-                  </Components>
-                </ApplicationPackage>
-                """";
-            public DemoPackageBuilder()
-            {
-                ApplicationPackage
-                    .Create()
-                    .AutodeskProduct(AutodeskProducts.Revit)
-                    .Name("RevitAddin")
-                    .AppVersion("1.0.0")
-                    .ProductType(ProductTypes.Application);
-
-                CompanyDetails
-                    .Create("Company Name")
-                    .Url("url")
-                    .Email("email");
-
-                Components
-                    .CreateEntry("Revit 2021")
-                    .OS("Win64")
-                    .Platform("Revit")
-                    .SeriesMin("R2021")
-                    .SeriesMax("R2021")
-                    .AppName("RevitAddin")
-                    .ModuleName(@"./Contents/2021/RevitAddin.addin");
-
-                Components
-                    .CreateEntry("Revit 2022")
-                    .RevitPlatform(2022)
-                    .AppName("RevitAddin")
-                    .ModuleName(@"./Contents/2022/RevitAddin.addin");
-            }
         }
     }
 }

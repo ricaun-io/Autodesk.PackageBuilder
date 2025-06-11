@@ -4,6 +4,42 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] / 2025-05-16 - 2025-06-05
+### Features
+- Support `AutoCAD` bundle.
+- Support `Inventor` bundle and add-in.
+- Support `3ds Max` bundle.
+- Support `Maya` bundle.
+- Support `Navisworks` bundle.
+- Support custom `Element` and `Attribute`.
+- Add `IncludeSymbols` to support `SymbolPackageFormat`.
+### PackageBuilder
+- Add `ExtensibleData` with custom `IXmlSerializable`.
+- Add `ExtensibleDataExtension` with `CreateEntryElement` and `CreateAttribute`.
+- Add `DataBuilderBase` and `DataBuilderBaseExtension`.
+- Add `AutoCADUtils` to support `AutoCADApplication` and `AutoCADPlatform`.
+- Add `AutoCADExtensibleData` to support `LoadOnAppearance` and `Commands`.
+- Add `AutoCADCommands` and `AutoCADCommand` in `AutoCADExtensibleData`.
+- Add `InventorUtils` to support `InventorApplication` and `InventorPlatform`.
+- Rename `AddInEntryBuilder` to `RevitAddInEntryBuilder`.
+- Add `IInventorAddInEntryBuilder`, `InventorAddInEntryBuilder` and `InventorAddIn`.
+- Update `InventorUtils` to have `SupportedSoftwareVersion` extension method.
+- Add `Max3dsUtils` to support `Max3dsApplication` and `Max3dsPlatform`.
+- Update `InventorUtils` to use `SeriesMin/SeriesMax` for `App Store` only.
+- Add `MayaUtils` to support `MayaApplication` and `MayaPlatform`.
+- Add `NavisworksUtils` to support `NavisworksApplication` and `NavisworksPlatform`.
+- Add `AppNameSpace` and `UpgradeCode` to `PackageBuilder`.
+- Update `ProductCode` and `UpgradeCode` to convert `Guid` to `ToStringBraces`.
+- Update `AppVersion` to convert `Version` to `ToString(3)`.
+### Tests
+- Add `DataBuild_Tests` to test `DataBuilder`
+- Add `PackageContentsBuilder_AutoCAD_Tests` and `PackageContentsBuilder_Revit_Tests`.
+- Add `InventorAddInsBuilder_Tests` to test `InventorAddInEntryBuilder`.
+- Add `PackageContentsBuilder_Inventor_Tests` to test `InventorUtils`.
+- Add `PackageContentsBuilder_Max3ds_Tests` to test `Max3dsUtils`.
+- Add `PackageContentsBuilder_Maya_Tests` to test `MayaUtils`.
+- Add `PackageContentsBuilder_Navisworks_Tests` to test `NavisworksUtils`.
+
 ## [1.0.6] / 2023-11-24 - 2023-12-06
 ### Features
 - `Tests` project.
@@ -56,6 +92,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - First Release
 
 [vNext]: ../../compare/1.0.0...HEAD
+[2.0.0]: ../../compare/1.0.6...1.2.0
 [1.0.6]: ../../compare/1.0.5...1.0.6
 [1.0.5]: ../../compare/1.0.4...1.0.5
 [1.0.4]: ../../compare/1.0.3...1.0.4
