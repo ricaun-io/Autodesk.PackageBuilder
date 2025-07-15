@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Autodesk.PackageBuilder.Extensible.Navisworks;
 
 namespace Autodesk.PackageBuilder.Tests.Application
 {
@@ -24,7 +25,7 @@ namespace Autodesk.PackageBuilder.Tests.Application
                   <CompanyDetails Name="Company Name" Url="url" Email="email" />
                   <Components Description="Navisworks 2024">
                     <RuntimeRequirements OS="Win64" Platform="NAVMAN|NAVSIM" SeriesMin="Nw19" SeriesMax="Nw21" />
-                    <ComponentEntry AppName="NavisworksAddin" ModuleName="./Contents/2024/NavisworksAddin.dll" />
+                    <ComponentEntry AppName="NavisworksAddin" ModuleName="./Contents/2024/NavisworksAddin.dll" AppType="ManagedPlugin" />
                   </Components>
                   <Components Description="Navisworks 2025">
                     <RuntimeRequirements OS="Win64" Platform="NAVMAN|NAVSIM" SeriesMin="Nw22" />
@@ -49,6 +50,7 @@ namespace Autodesk.PackageBuilder.Tests.Application
                 Components
                     .CreateEntry("Navisworks 2024")
                     .NavisworksPlatform(19, 22, true)
+                    .AppType()
                     .AppName("NavisworksAddin")
                     .ModuleName(@"./Contents/2024/NavisworksAddin.dll");
 
