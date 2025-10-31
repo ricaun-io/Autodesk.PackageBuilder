@@ -40,7 +40,7 @@ namespace Autodesk.PackageBuilder.Tests.Addin
         /// <remarks>
         /// https://help.autodesk.com/view/RVT/2026/ENU/?guid=Revit_API_Revit_API_Developers_Guide_Introduction_Add_In_Integration_Add_in_Dependency_Isolation_html
         /// </remarks>
-        public class ManifestSetting : ExtensibleData
+        public class ManifestSettings : ExtensibleData
         {
             [XmlElement]
             public bool UseRevitContext { get; set; }
