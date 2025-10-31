@@ -6,9 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [2.0.2] / 2025-10-31
 ### Features
-- Support `DataBuilder` in `RevitAddInsBuilder`.
+- Support `DataBuilder` in `RevitAddInsBuilder`. (Fix: #21)
 ### Tests
 - Add `RevitAddInsBuilder_ManifestSettings_Tests`.
+- Remove `net6.0` target framework in tests.
 
 ## [2.0.1] / 2025-07-15
 ### Features
