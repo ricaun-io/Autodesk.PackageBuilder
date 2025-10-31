@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Tests
 - Add `RevitAddInsBuilder_ManifestSettings_Tests`.
 - Remove `net6.0` target framework in tests.
+- Add `RevitAddInsBuilderManifestSettingsExtensions` with extension to create `ManifestSettings`.
 
 ## [2.0.1] / 2025-07-15
 ### Features

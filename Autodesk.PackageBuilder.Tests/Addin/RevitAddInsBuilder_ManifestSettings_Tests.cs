@@ -29,9 +29,20 @@ namespace Autodesk.PackageBuilder.Tests.Addin
 
             builder.AssertElement(nameof(ManifestSettings.UseRevitContext), "true");
             builder.AssertElement(nameof(ManifestSettings.ContextName), contextName);
+        }
 
-            var content = builder.ToString();
-            Console.WriteLine(content);
+        [TestCase("ContextName")]
+        [TestCase("MyContext")]
+        public void Build_CreateManifestSettings(string contextName)
+        {
+            var addIn = builder.AddIn.CreateEntry();
+
+            var manifestSettings = builder.CreateManifestSettings();
+            manifestSettings.UseRevitContext = true;
+            manifestSettings.ContextName = contextName;
+
+            builder.AssertElement(nameof(ManifestSettings.UseRevitContext), "true");
+            builder.AssertElement(nameof(ManifestSettings.ContextName), contextName);
         }
 
         /// <summary>
