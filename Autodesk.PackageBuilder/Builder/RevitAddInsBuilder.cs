@@ -27,6 +27,11 @@
         public IRevitAddInEntryBuilder AddIn => _addInEntryBuilder;
 
         /// <summary>
+        /// Gets the data builder for configuring the <see cref="RevitAddIns"/> entry.
+        /// </summary>
+        public DataBuilderBase DataBuilder => _revitAddInsEntryBuilder.DataBuilder;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="RevitAddInsBuilder"/> class.
         /// </summary>
         public RevitAddInsBuilder()
